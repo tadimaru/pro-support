@@ -198,9 +198,13 @@
         <section id="map">
             <h2>🗺 マップの操作</h2>
             <ul>
-                <li><strong>ズーム</strong> — <kbd>Ctrl</kbd> ＋ マウスホイール（カーソルの位置を中心に拡大縮小します）。
-                    <strong><kbd>Ctrl</kbd> なしのホイールではズームしません</strong>
-                    （ダイヤグラム等のウィンドウ操作を優先するため）。</li>
+                <li><strong>ズーム</strong> — <strong>マウスホイール</strong>（カーソルの位置を中心に拡大縮小します）。
+                    <kbd>Ctrl</kbd> ＋ ホイールでも同じように効きます（ノートパソコンのタッチパッドの
+                    <strong>ピンチ操作</strong>はこちらで動きます）。
+                    マウスを使わないときは <kbd>PageUp</kbd>／<kbd>PageDown</kbd>、または
+                    <kbd>Ctrl</kbd>＋<kbd>+</kbd>／<kbd>Ctrl</kbd>＋<kbd>-</kbd> で拡大縮小できます
+                    （押しっぱなしで連続して動きます）。<br>
+                    ※ ダイヤグラムなどのウィンドウの上でホイールを回したときは、そのウィンドウの操作になります。</li>
                 <li><strong>移動（パン）</strong> — <strong>右ドラッグ</strong>、または <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>／矢印キー。</li>
                 <li><strong>全体表示</strong> — <kbd>Home</kbd> で路線全体が 1 画面に収まる位置へ戻します。</li>
                 <li><strong>列車の選択</strong> — 列車を<strong>左クリック</strong>。何もない場所をクリックで解除します。
@@ -301,7 +305,7 @@
                 <li><kbd>F</kbd> — 選択中の列車を追尾する / やめる</li>
                 <li><kbd>Home</kbd> — 路線全体を表示</li>
                 <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / 矢印キー — マップ移動</li>
-                <li><kbd>Ctrl</kbd>+ホイール — マップのズーム</li>
+                <li>ホイール ／ <kbd>PageUp</kbd> <kbd>PageDown</kbd> ／ <kbd>Ctrl</kbd>+<kbd>+</kbd> <kbd>Ctrl</kbd>+<kbd>-</kbd> — マップのズーム</li>
             </ul>
             <h3>ダイヤ作成モード</h3>
             <ul>
@@ -343,8 +347,11 @@
 
             <div class="faq-item">
                 <div class="faq-q">マップがホイールで拡大できません。</div>
-                <div class="faq-a">ズームは <kbd>Ctrl</kbd> ＋ ホイールです。ホイール単独はダイヤグラム等の
-                    ウィンドウ操作に譲るため、マップには効かないようにしてあります。</div>
+                <div class="faq-a">マップの上でホイールを回してください。ダイヤグラムなどの<strong>ウィンドウの上では
+                    そのウィンドウの操作</strong>になるため、マップは動きません。
+                    マウスが無いときは <kbd>PageUp</kbd>／<kbd>PageDown</kbd> でも拡大縮小できます。<br>
+                    ※ v0.1.4 以前は <kbd>Ctrl</kbd> ＋ ホイールが必要でした。現在は <kbd>Ctrl</kbd> なしでも効きます
+                    （<kbd>Ctrl</kbd> ＋ ホイールも従来どおり使えます）。</div>
             </div>
 
             <div class="faq-item">
