@@ -58,6 +58,7 @@
             <li><a href="#signal-bulk">🟡 信号機一括</a></li>
             <li><a href="#module">🏗️ 駅モジュール（くわしい版）</a></li>
             <li><a href="#interstation">🧵 駅間敷設（くわしい版）</a></li>
+            <li><a href="#coordinate">📍 座標を動かす（置いたあとの手直し）</a></li>
             <li><a href="#train">🚋 車両形式（くわしい版）</a></li>
             <li><a href="#lint">🧾 残作業をくわしいモードで直す</a></li>
             <li><a href="#keys">⌨️ 共通の操作</a></li>
@@ -112,6 +113,8 @@
                 <tr><td><strong>ホーム</strong></td><td>ホームの四角を置き、番線の表記を入れる</td></tr>
                 <tr><td><strong>駅モジュール</strong></td><td>駅一式を一括生成（かんたんモードの「駅を作る」と同じ道具）</td></tr>
                 <tr><td><strong>駅間敷設</strong></td><td>駅間を一括生成（同「駅と駅をつなぐ」）</td></tr>
+                <tr><td><strong>座標を動かす</strong></td><td>線路・信号・ホームが乗っている点を 1 つ動かす</td></tr>
+                <tr><td><strong>座標を範囲で動かす</strong></td><td>囲った範囲の点をまとめて平行移動する</td></tr>
             </table>
             <h3>設備</h3>
             <table>
@@ -445,6 +448,52 @@
                 <li><strong>単線</strong> — 折れ点ごとに双方向 1 軌道回路（単線指定つき）。
                     閉塞信号は置かず、両駅の出発進路を単線区間の終端まで延ばします。</li>
             </ul>
+        </section>
+
+        <section id="coordinate">
+            <h2>📍 座標を動かす（置いたあとの手直し）</h2>
+            <p>
+                線路の端・信号・てこ・ホームの角は、すべて<strong>「座標」という点</strong>の上に乗っています。
+                駅を置いたあとで<strong>位置をずらしたい・区間を広げたい</strong>ときは、
+                作り直さずにこの点を動かします。
+            </p>
+            <h3>1 つだけ動かす（座標を動かす）</h3>
+            <ol class="step-list">
+                <li><strong>動かしたい点を左クリック</strong> — その位置にあるものが一覧で出ます
+                    （何も無い所をクリックすると点を新しく足します）</li>
+                <li><strong>一緒に動かすものにチェック</strong> — 外したものはその場に残ります
+                    （重なっている線路のうち片方だけを動かす、という使い方ができます）</li>
+                <li><strong>移動先を左クリック</strong>して<strong>「確定」</strong></li>
+            </ol>
+            <p>
+                <strong>右ドラッグでつかんで動かす</strong>こともできます（グリッドにスナップします）。
+                ドラッグ 1 回は <kbd>Ctrl</kbd>+<kbd>Z</kbd> 1 回で元に戻ります。
+            </p>
+            <h3>まとめて動かす（座標を範囲で動かす）</h3>
+            <ul>
+                <li><strong>ドラッグで矩形選択</strong>（<kbd>Shift</kbd> 追加 / <kbd>Ctrl</kbd> トグル /
+                    <kbd>Ctrl</kbd>+<kbd>A</kbd> 全選択）。線路・信号・てこ・ホームの区別なく、
+                    範囲に入った点がすべて対象です。</li>
+                <li><strong>dx / dy</strong> を入れて「適用」。よく使う 1 マス移動は
+                    <strong>← → ↑ ↓</strong> のボタンで一発です。</li>
+            </ul>
+            <div class="callout warn">
+                <strong>移動先に別の点が重なるときは動かしません。</strong>
+                同じ位置に来た点どうしは<strong>つながっているものとして扱われる</strong>ので、
+                重ねると意図しない線路の接続ができてしまうためです。
+                「〜と重なるため中止しました」と出たら、先に相手の点をどかすか、移動量を変えてください。
+            </div>
+            <div class="callout tip">
+                駅を丸ごとずらしたいときは、<strong>その駅を囲って範囲移動</strong>が速いです。
+                点は ID で参照されているので、動かしても進路・信号の紐づけは切れません。
+                ただし<strong>実長 [m] は自動では変わりません</strong>——距離を変えたときは
+                軌道一括で入れ直してください。
+            </div>
+            <p>
+                なお、動かした結果<strong>線路が真上・真下になる</strong>と左右が決められなくなり、
+                <strong>分岐器の直進どうしが同じ点に来る</strong>と形が壊れます。
+                どちらも保存時の残作業で鳴るので、大きく動かしたら一度 <kbd>F5</kbd> を押して確かめてください。
+            </p>
         </section>
 
         <section id="train">
