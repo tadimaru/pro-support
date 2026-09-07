@@ -59,6 +59,7 @@
             <li><a href="#module">🏗️ 駅モジュール（くわしい版）</a></li>
             <li><a href="#interstation">🧵 駅間敷設（くわしい版）</a></li>
             <li><a href="#coordinate">📍 座標を動かす（置いたあとの手直し）</a></li>
+            <li><a href="#jump">🪢 離れた線路をつなぐ（ジャンプ）</a></li>
             <li><a href="#train">🚋 車両形式（くわしい版）</a></li>
             <li><a href="#lint">🧾 残作業をくわしいモードで直す</a></li>
             <li><a href="#keys">⌨️ 共通の操作</a></li>
@@ -115,6 +116,7 @@
                 <tr><td><strong>駅間敷設</strong></td><td>駅間を一括生成（同「駅と駅をつなぐ」）</td></tr>
                 <tr><td><strong>座標を動かす</strong></td><td>線路・信号・ホームが乗っている点を 1 つ動かす</td></tr>
                 <tr><td><strong>座標を範囲で動かす</strong></td><td>囲った範囲の点をまとめて平行移動する</td></tr>
+                <tr><td><strong>離れた線路をつなぐ</strong></td><td>画面上で離れている 2 点を、線路としてつながっていることにする</td></tr>
             </table>
             <h3>設備</h3>
             <table>
@@ -494,6 +496,35 @@
                 <strong>分岐器の直進どうしが同じ点に来る</strong>と形が壊れます。
                 どちらも保存時の残作業で鳴るので、大きく動かしたら一度 <kbd>F5</kbd> を押して確かめてください。
             </p>
+        </section>
+
+        <section id="jump">
+            <h2>🪢 離れた線路をつなぐ（ジャンプ）</h2>
+            <p>
+                長い路線をまっすぐ描くと、盤面が横に伸びすぎて画面に入りません。
+                そこで実物の運転指令盤と同じように<strong>何段かに折り返して</strong>描き、
+                「段の右端」と「次の段の左端」を<strong>つながっていることにする</strong>のがこの道具です。
+            </p>
+            <ol class="step-list">
+                <li><strong>つなぎ元の点を左クリック</strong>（既にある線路の端をクリックします）</li>
+                <li><strong>つなぎ先の点を左クリック</strong></li>
+                <li><strong>「ジャンプ登録」</strong>（備考は任意）</li>
+            </ol>
+            <p>
+                登録するとエディタ上では 2 点が細い線で結ばれます。
+                ゲーム側はこの 2 点を<strong>同じ場所</strong>として扱うので、進路も列車も途切れずに続きます。
+                右クリックで選んで <kbd>Delete</kbd> すれば取り消せます。
+            </p>
+            <div class="callout tip">
+                同梱の路線もすべてこれを使っています（1 路線あたり 3〜9 か所）。
+                折り返す位置は<strong>駅と駅のあいだ</strong>——駅の途中や分岐器の中で折り返すと、
+                盤面が読みにくくなります。
+            </div>
+            <div class="callout warn">
+                つなげるのは<strong>既にある点</strong>だけです。何も無い所をクリックしても登録できません。
+                また、同じ位置に重なっている点どうしは<strong>元からつながっている扱い</strong>なので、
+                ジャンプは要りません。
+            </div>
         </section>
 
         <section id="train">
