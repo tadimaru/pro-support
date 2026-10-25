@@ -7,7 +7,8 @@
     <title>シナリオモード | 鉄道運行管理シミュレーターPro</title>
     <meta name="description" content="クリア条件ウィンドウ・リザルト画面・指令ヘルプなど、シナリオモードの仕組みを説明します。">
     <link rel="alternate" hreflang="ja" href="https://tadimaru.github.io/pro-support/scenario.html">
-    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/scenario.html">
+    <link rel="alternate" hreflang="en" href="https://tadimaru.github.io/pro-support/scenario.en.html">
+    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/scenario.en.html">
     <script>/* テーマ初期反映（FOUC回避）: 保存済みの明示テーマを CSS 読込前に適用 */
     (function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
     <link rel="stylesheet" href="assets/site.css">
@@ -34,6 +35,7 @@
             <summary>🌐 日本語</summary>
             <div class="menu">
                 <a class="current" href="scenario.html" lang="ja">日本語</a>
+                <a href="scenario.en.html" lang="en">English</a>
             </div>
         </details>
     </div>
@@ -303,7 +305,7 @@
                         再開後にただ順へ流すだけでは詰まります。延発整理で運転間隔を取り戻します。</td>
                 </tr>
             </table>
-            <h3>横浜新都市鉄道3号線（2 本）</h3>
+            <h3>横浜新都市鉄道3号線（5 本）</h3>
             <table>
                 <tr>
                     <th style="width:26%;">シナリオ</th>
@@ -321,6 +323,82 @@
                     <td>★★☆☆☆<br>17:00〜17:40</td>
                     <td>夕暮れの都心、新戸部〜桜木町間が 20 分間の運転見合わせに。
                         鶴見方は横浜で、上大岡方は関内で折り返しを仕立て、高頻度路線の両側の輸送を守り切ります。</td>
+                </tr>
+                <tr>
+                    <td><strong>上大岡、返せぬ夕</strong></td>
+                    <td>★★★☆☆<br>17:30〜18:00</td>
+                    <td>4 分間隔の夕ラッシュで、上大岡のポイントが不転換に。二俣川方の出口が塞がり、根岸から先は事実上の運転見合わせです。
+                        限られた折返し設備で、日吉方面の本数を守ります。</td>
+                </tr>
+                <tr>
+                    <td><strong>横浜、十三分の扉</strong></td>
+                    <td>★★★★☆<br>07:30〜08:50</td>
+                    <td>朝ラッシュの横浜で、二俣川方面の各停がドア故障で動けなくなります。応急処置の 13 分間、後続を駅で受け止め、
+                        復旧後に間隔を整えて流し直します。</td>
+                </tr>
+                <tr>
+                    <td><strong>二分半の朝</strong></td>
+                    <td>★★★★★<br>07:20〜09:00</td>
+                    <td>横浜発着が 2 分半おきの朝ラッシュ。非常停止装置の扱い、急病人の救護、線路内の落下物と、小さな支障が次々に起きます。
+                        延発で間隔をならし、遅れを次の支障までに畳みます。</td>
+                </tr>
+            </table>
+            <h3>新千歳空港アクセス線（5 本）</h3>
+            <table>
+                <tr>
+                    <th style="width:26%;">シナリオ</th>
+                    <th style="width:14%;">難度</th>
+                    <th>状況</th>
+                </tr>
+                <tr>
+                    <td><strong>水明郷、すれ違えず</strong></td>
+                    <td>★☆☆☆☆<br>09:50〜11:30</td>
+                    <td>支笏湖温泉へ向かう単線で、行き違いの駅・水明郷の片方の番線がポイント不転換に。復旧の見込みは立ちません。
+                        残った 1 番線だけで、特急も普通も止めずに全列車をさばきます。</td>
+                </tr>
+                <tr>
+                    <td><strong>清田、外の線を失う</strong></td>
+                    <td>★★☆☆☆<br>10:00〜11:00</td>
+                    <td>研究所前〜北広島の複々線で、清田の軌道回路が故障し、新千歳空港方面の急行線が通れなくなります。
+                        速度の違う列車を緩行線へ編み込み、本数と時間を守る 45 分間です。</td>
+                </tr>
+                <tr>
+                    <td><strong>さっぽろ、渡れない朝</strong></td>
+                    <td>★★★☆☆<br>07:30〜08:35</td>
+                    <td>朝ラッシュのさっぽろで場内の両渡り分岐器が故障し、地下鉄区間の終点が塞がります。
+                        地下鉄に入れない列車を本線へ振り替え、都心への輸送力を守ります。</td>
+                </tr>
+                <tr>
+                    <td><strong>ビール園、闇に飛び出す影</strong></td>
+                    <td>★★★★☆<br>18:03〜19:10</td>
+                    <td>夕方ラッシュ、札幌行きの特急ちとせがビール園の手前で動物と衝突。撤去には長い時間がかかり、北広島から空港側は事実上の運転見合わせです。
+                        発車順序の組み立てが勝負の 1 時間です。</td>
+                </tr>
+                <tr>
+                    <td><strong>月寒、朝の急病人</strong></td>
+                    <td>★★★★★<br>07:53〜08:50</td>
+                    <td>平日の朝ラッシュ、月寒に停車中の列車で急病人の救護。その 9 分の間に、ほかの駅でも小さな支障が立て続けに重なります。
+                        全域に目を配り、遅れを引きずらないことが課題です。</td>
+                </tr>
+            </table>
+            <h3>日本海新幹線（2 本）</h3>
+            <table>
+                <tr>
+                    <th style="width:26%;">シナリオ</th>
+                    <th style="width:14%;">難度</th>
+                    <th>状況</th>
+                </tr>
+                <tr>
+                    <td><strong>酒田、夜明けの停電</strong></td>
+                    <td>★☆☆☆☆<br>05:45〜09:20</td>
+                    <td>始発の時間帯、酒田〜羽後本荘の変電所が故障し、両方向とも不通に。復旧は 8 時 50 分です。
+                        車庫の予備車両も使って運用を組み替え、支障区間の外をできる限り平常どおりに走らせます。</td>
+                </tr>
+                <tr>
+                    <td><strong>日本海、風の二時間</strong></td>
+                    <td>★★☆☆☆<br>10:00〜13:00</td>
+                    <td>金沢〜上越の海沿いに強風が吹き、130km/h の速度規制が 2 時間続きます。遅れは在来線とは桁違いの規模で積み上がります。
+                        12 時の解除から 13 時までの 1 時間で、ダイヤを立て直します。</td>
                 </tr>
             </table>
         </section>

@@ -7,7 +7,8 @@
     <title>ダイヤ作成編 | 鉄道運行管理シミュレーターPro</title>
     <meta name="description" content="ダイヤ筋の編集・仕業配置・列車種別マスタ・プレビュー試走・ダイヤ検証の使い方をまとめています。">
     <link rel="alternate" hreflang="ja" href="https://tadimaru.github.io/pro-support/diagram-edit.html">
-    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/diagram-edit.html">
+    <link rel="alternate" hreflang="en" href="https://tadimaru.github.io/pro-support/diagram-edit.en.html">
+    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/diagram-edit.en.html">
     <script>/* テーマ初期反映（FOUC回避）: 保存済みの明示テーマを CSS 読込前に適用 */
     (function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
     <link rel="stylesheet" href="assets/site.css">
@@ -34,6 +35,7 @@
             <summary>🌐 日本語</summary>
             <div class="menu">
                 <a class="current" href="diagram-edit.html" lang="ja">日本語</a>
+                <a href="diagram-edit.en.html" lang="en">English</a>
             </div>
         </details>
     </div>
@@ -526,7 +528,8 @@
             </ul>
             <h3>保存先</h3>
             <div class="path-box">
-                C:\Users\&lt;ユーザー名&gt;\AppData\LocalLow\Tadimaru\CTCLive\Data\&lt;会社ID&gt;\Scenarios\&lt;ダイヤID&gt;\
+                Windows: C:\Users\&lt;ユーザー名&gt;\AppData\LocalLow\Tadimaru\CTCLive\Data\&lt;会社ID&gt;\Scenarios\&lt;ダイヤID&gt;\<br>
+                Mac: ~/Library/Application Support/Tadimaru/CTCLive/Data/&lt;会社ID&gt;/Scenarios/&lt;ダイヤID&gt;/
             </div>
             <p>
                 中身は CSV ファイル一式（<code>PlannedTrains.csv</code>、<code>PlannedTimings.csv</code>、

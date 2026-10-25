@@ -7,7 +7,8 @@
     <title>はじめに | 鉄道運行管理シミュレーターPro</title>
     <meta name="description" content="路線全体を俯瞰して指令する「鉄道運行管理シミュレーターPro」の目的・画面の見かた・基本操作をまとめています。">
     <link rel="alternate" hreflang="ja" href="https://tadimaru.github.io/pro-support/help.html">
-    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/help.html">
+    <link rel="alternate" hreflang="en" href="https://tadimaru.github.io/pro-support/help.en.html">
+    <link rel="alternate" hreflang="x-default" href="https://tadimaru.github.io/pro-support/help.en.html">
     <script>/* テーマ初期反映（FOUC回避）: 保存済みの明示テーマを CSS 読込前に適用 */
     (function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
     <link rel="stylesheet" href="assets/site.css">
@@ -34,6 +35,7 @@
             <summary>🌐 日本語</summary>
             <div class="menu">
                 <a class="current" href="help.html" lang="ja">日本語</a>
+                <a href="help.en.html" lang="en">English</a>
             </div>
         </details>
     </div>
@@ -44,7 +46,7 @@
         <div class="section-title">このページの内容</div>
         <ul>
             <li><a href="#goal">🎯 ゲームの目的</a></li>
-            <li><a href="#modes">🎛 4 つの遊び方</a></li>
+            <li><a href="#modes">🎛 遊び方の入口</a></li>
             <li><a href="#flow">📋 基本の流れ</a></li>
             <li><a href="#screen">🖥 画面の見かた</a></li>
             <li><a href="#map">🗺 マップの操作</a></li>
@@ -88,17 +90,21 @@
         </section>
 
         <section id="modes">
-            <h2>🎛 4 つの遊び方</h2>
-            <p>タイトル画面から、目的に応じて 4 つの入口を選びます。</p>
+            <h2>🎛 遊び方の入口</h2>
+            <p>タイトル画面から、目的に応じて入口を選びます。</p>
             <ul>
                 <li><strong>シナリオ</strong> — トラブルに対応する実戦モード。車両故障や運転見合わせが起き、
                     <strong>クリア条件</strong>の達成を目指します。→ <a href="scenario.html">シナリオモード</a></li>
                 <li><strong>サンドボックス</strong> — 自由に運行を指令する練習モード。決められた目標はなく、
                     好きなダイヤを選んで一日を回します。<strong>オートセーブが効くのはこのモードだけ</strong>です。</li>
+                <li><strong>協力プレイ</strong> — Steam の友だちと一緒に指令するオンラインのモード。
+                    → <a href="coop.html">協力プレイ編</a></li>
                 <li><strong>チュートリアル</strong> — 操作を一から学べる入門モード。<strong>全 5 本</strong>あり、
                     画面の見方から駅扱い（手動進路）まで順に学べます。<strong>まずはここから</strong>始めるのがおすすめです。</li>
                 <li><strong>ダイヤ作成</strong> — 列車のダイヤを自分で編集するモード。
                     → <a href="diagram-edit.html">ダイヤ作成編</a></li>
+                <li><strong>マップ作成（β版）</strong> — 路線を一から作るマップエディタ（試験公開）。
+                    → <a href="map-editor.html">マップ作成編</a></li>
             </ul>
             <p>
                 このほか <strong>「遊び方説明」</strong>（この説明書）、<strong>「設定」</strong>、
@@ -200,6 +206,40 @@
                     折返しや車庫への出入りに使い、両方向の列車が発着します</li>
                 <li><strong>日吉・二俣川</strong> — 行き止まりの駅で、どのホームにも両方向の列車が発着します</li>
             </ul>
+            <p><strong>新千歳空港アクセス線</strong></p>
+            <ul>
+                <li><strong>1 番線 = 新千歳空港・支笏湖温泉方面</strong></li>
+                <li><strong>2 番線 = 札幌方面</strong>（研究所前より空港側では、地下鉄へ乗り入れるさっぽろ方面の列車も使います）</li>
+            </ul>
+            <p>地下鉄区間（さっぽろ〜福住）は <strong>1 番線 = 研究所前方面</strong>、<strong>2 番線 = さっぽろ方面</strong>です。</p>
+            <p>例外は 3 線以上の駅、支笏湖温泉へ向かう単線区間、行き止まりの駅です。</p>
+            <ul>
+                <li><strong>山鼻・南平岸</strong> — 1・2 番線が新千歳空港方面、3・4 番線が札幌方面</li>
+                <li><strong>研究所前</strong> — 1 番線が新千歳空港方面、4 番線が札幌方面。内側の 2・3 番線は地下鉄と行き来する列車が使い、
+                    2 番線が新千歳空港方面、3 番線がさっぽろ方面です</li>
+                <li><strong>清田・美しが丘・北広島</strong> — 1・2 番線が新千歳空港方面、3・4 番線が札幌・さっぽろ方面</li>
+                <li><strong>恵庭</strong> — 1・2 番線が新千歳空港方面、3 番線が札幌方面</li>
+                <li><strong>新千歳空港</strong> — 折り返しの多い駅で、どのホームにも両方向の列車が発着します</li>
+                <li><strong>泉沢・水明郷・西森</strong>（単線区間） — 泉沢は 1 番線が支笏湖温泉方面、2 番線が新千歳空港方面。
+                    行き違いの水明郷は、どちらの番線にも両方向の列車が発着します。西森はホームが 1 つです</li>
+                <li><strong>札幌・支笏湖温泉・さっぽろ</strong> — 行き止まりの駅で、どのホームにも両方向の列車が発着します</li>
+            </ul>
+            <p><strong>日本海新幹線</strong></p>
+            <ul>
+                <li><strong>1 番線 = 札幌方面</strong></li>
+                <li><strong>2 番線 = 金沢方面</strong></li>
+            </ul>
+            <p>3 線以上の駅でも、<strong>番号の小さい側が札幌方面、大きい側が金沢方面</strong>です。</p>
+            <ul>
+                <li><strong>上越</strong> — 1・2 番線が札幌方面、3 番線が金沢方面</li>
+                <li><strong>燕三条・村上・大館</strong> — 1・2 番線が札幌方面、3・4 番線が金沢方面</li>
+                <li><strong>鶴岡</strong> — 2・3 番線が札幌方面、4・5 番線が金沢方面</li>
+                <li><strong>新青森・奥津軽いまべつ・長万部</strong> — 2 番線が札幌方面、3 番線が金沢方面</li>
+                <li><strong>富山・長岡・新潟・秋田</strong> — 2 番線が札幌方面、3 番線が金沢方面。外側の 1・4 番線は、
+                    この駅で折り返す列車が両方向に使います</li>
+                <li><strong>函館新北斗</strong> — 2 番線が札幌方面、3 番線が金沢方面（1 番線は折り返し用）</li>
+                <li><strong>金沢・札幌</strong> — 行き止まりの駅で、どのホームにも両方向の列車が発着します</li>
+            </ul>
 
             <h3 id="hover-label">左下のカーソル説明</h3>
             <p>
@@ -209,7 +249,7 @@
             <ul>
                 <li>軌道回路 … <code>TC_0001（球場前駅 1番線）</code>、分岐器の一部なら <code>TC_0075（分岐器 SW_006）</code></li>
                 <li>てこ … <code>てこ 1（球場前駅・発点/本線）</code></li>
-                <li>列車 … <code>712B 普通 仙台行（長町 停車中）</code></li>
+                <li>列車 … <code>712B 普通 仙台行（国分町 停車中）</code></li>
             </ul>
         </section>
 
@@ -277,7 +317,8 @@
             </p>
             <h3>保存先</h3>
             <div class="path-box">
-                C:\Users\&lt;ユーザー名&gt;\AppData\LocalLow\Tadimaru\CTCLive\
+                Windows: C:\Users\&lt;ユーザー名&gt;\AppData\LocalLow\Tadimaru\CTCLive\<br>
+                Mac: ~/Library/Application Support/Tadimaru/CTCLive/
             </div>
             <p>
                 この中の <code>Saves\</code> にセーブデータ、<code>Screenshots\</code> にスクリーンショット、
@@ -295,6 +336,7 @@
                 こちらは<strong>開いている窓を閉じずに</strong>設定へ入れるので、盤面の状態はそのまま残ります。
             </p>
             <ul>
+                <li><strong>言語</strong> — 画面に表示する言語を選びます。切り替えられるのはタイトル画面から開いたときだけです</li>
                 <li><strong>通知音</strong> — 列車の抑止やインシデントなど、見ていないところで起きたことを知らせる音の大きさです。
                     0 にすると鳴りません</li>
                 <li><strong>操作音</strong> — ボタンやてこを操作したときの短い音の大きさです。通知音とは別に調整できるので、
@@ -313,7 +355,7 @@
                     <strong>ログだけ／音で知らせる／一時停止＋音</strong>を選べます。
                     見逃したくない出来事は「一時停止＋音」にすると、その場で時間が止まります</li>
                 <li><strong>通知ログ</strong> — ログに出すカテゴリの切り替え
-                    （運行イベント・進路/連動・システム診断。「重大」「操作応答」は常に表示されます）</li>
+                    （進路/連動・システム診断。「重大」「操作応答」「運行イベント」は常に表示されます）</li>
                 <li><strong>ヘルプを見る</strong> — この説明書をブラウザで開きます</li>
             </ul>
             <p><kbd>Shift</kbd>+<kbd>Esc</kbd> では、いつでもゲームを終了できます。</p>
@@ -332,6 +374,7 @@
 
         <section id="keys">
             <h2>⌨️ キー操作のまとめ</h2>
+            <p>Mac では、この説明書の <kbd>Ctrl</kbd> を <kbd>⌘</kbd>（Command）に読み替えてください（<kbd>Ctrl</kbd> でも効きます）。</p>
             <h3>共通</h3>
             <ul>
                 <li><kbd>F1</kbd> — この説明書を開く</li>
@@ -407,7 +450,8 @@
 
             <div class="faq-item">
                 <div class="faq-q">対応言語を教えてください。</div>
-                <div class="faq-a">現在は<strong>日本語のみ</strong>です。</div>
+                <div class="faq-a"><strong>日本語・英語・簡体字中国語・繁体字中国語・韓国語・ドイツ語・インドネシア語</strong>の 7 言語です。
+                    言語はタイトル画面の「設定」で切り替えます。この説明書は日本語と英語のみです。</div>
             </div>
 
             <div class="faq-item">
