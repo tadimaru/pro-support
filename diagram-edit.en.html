@@ -180,7 +180,8 @@
                 Click a train path in the window's list or on the diagram to select it (the window switches to the "Edit Existing Train Path" tab automatically).
             </p>
             <ul>
-                <li><strong>Departure time / train no.</strong> — Enter each and press "Apply"</li>
+                <li><strong>Departure time / train no.</strong> — Enter each and press "Apply".
+                    Clicking a time or seconds field selects its current value, so whatever you type replaces it</li>
                 <li><strong>Changing the train type</strong> — Press the button in the "Train type" field to show a list of train types. Choosing one changes the train type, and
                     <strong>calling points, dwell seconds, and running times are recalculated for that type</strong> (departure time, route, and final stop stay the same).
                     Extra stops and skip stops you set at individual stations remain</li>
@@ -208,11 +209,16 @@
 
             <h3>Adjusting the Route and Stops (the "Route" Field)</h3>
             <p>The stations and switches the selected train path passes are listed from top to bottom.</p>
+            <p>
+                <strong>Clicking a station row (the station name) opens that station's timetable</strong> (in the Line Guide).
+                You can also open it with the <strong>"Station timetable"</strong> button at the top right of the "Edit Existing Train Path" tab (the station you last touched, or the origin station if none).
+            </p>
             <ul>
                 <li><strong>Extra Stop / Skip Stop</strong> — Treat that station alone differently from the train type's calling pattern.
                     Overridden stations are marked <strong>⚡</strong>, and <strong>"Default"</strong> sets them back</li>
                 <li><strong>Dwell seconds</strong> — In the "└Stop" field under a stopping station, you can change the dwell time at that station only
-                    (0–3600 seconds). "Default" removes the override</li>
+                    (0–3600 seconds). "Default" removes the override.
+                    The <strong>"+30 s"</strong> and <strong>"+1 min"</strong> buttons on that row add that much and take effect immediately</li>
                 <li><strong>Switch (└Switch)</strong> — Click a switch's position to toggle it, and
                     <strong>the route and times are recalculated on the spot</strong>. The arrival track changes too.
                     You can't choose a position for which no route can be laid out; a warning appears and it reverts.

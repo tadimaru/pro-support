@@ -153,7 +153,7 @@
                 <li><strong>White</strong> — Normal</li>
                 <li><strong>Yellow</strong> — A route is set</li>
                 <li><strong>Red</strong> — A train is occupying it</li>
-                <li><strong>Dark gray</strong> — Impassable due to an incident</li>
+                <li><strong>Dark gray</strong> — Impassable due to an incident (for a track circuit impassable incident, that section also <strong>flashes red</strong>)</li>
                 <li><strong>Dim gray</strong> — The side of a switch that is not currently set</li>
             </ul>
             <p>Signals are round markers whose color shows the aspect (the signal's indication).</p>
@@ -249,6 +249,7 @@
             <ul>
                 <li>Track circuit … <code>TC_0001 (Kyujo-mae Track 1)</code>; if it is part of a switch, <code>TC_0075 (Switch SW_006)</code></li>
                 <li>Lever … <code>Lever 1 (Kyujo-mae, Start/main)</code></li>
+                <li>Signal … <code>Signal for route 1C (Lever 1 → C, Kyujo-mae)</code>. Shows the route the signal governs and its start and end levers (not shown for block signals)</li>
                 <li>Train … <code>712B Local for Sendai (Stopped at Kokubuncho)</code></li>
             </ul>
         </section>
@@ -347,13 +348,16 @@
                 <li><strong>Block signals</strong> — Show / Hide.
                     Removes only the block signals between stations (automatic signals without route levers) from the map. Home, starting, and shunting signals are always shown,
                     and train movement and signal behavior don't change. Useful when there are so many signals that the map is hard to read</li>
-                <li><strong>Random incidents</strong> — None (default) / Few / Normal / Many.
+                <li><strong>Random incidents</strong> — None (default) / Very few / Few / Normal / Many.
                     In Sandbox (free play), randomly causes train failures, speed restrictions on sections, and so on.
-                    They recover automatically after a while</li>
-                <li><strong>Notifications</strong> — For each of four events, "Incident occurs", "Train cannot depart", "Stopped outside station",
+                    They recover automatically after a while.
+                    The settings screen shows the approximate number per day (24 in-game hours)
+                    (Very few ~7 / Few ~26 / Normal ~52 / Many ~104)</li>
+                <li><strong>Notifications</strong> — For each of five events, "Incident occurs", "Incident cleared", "Train cannot depart", "Stopped outside station",
                     and "Blocking a track with no next service",
                     you can choose <strong>Log only / Sound alert / Pause + sound</strong>.
-                    For events you don't want to miss, choose "Pause + sound" and time stops right then</li>
+                    For events you don't want to miss, choose "Pause + sound" and time stops right then
+                    ("Incident cleared" is "Log only" by default)</li>
                 <li><strong>Notification log</strong> — Toggles which categories appear in the log
                     (Routes &amp; interlocking, System diagnostics. "Critical", "Action responses" and "Service events" are always shown)</li>
                 <li><strong>View Help</strong> — Opens this manual in your browser</li>
@@ -365,6 +369,12 @@
                 <strong>All on-screen notices are collected in the "Log" window</strong>
                 ("Window → Show Log"). The results of your orders, and the reasons they failed, appear here too.
                 When something isn't working, check the log first.
+            </p>
+            <p>
+                To look back at older entries, <strong>turn the mouse wheel</strong> over the Log window or drag the <strong>bar on its right edge</strong>
+                (up to 200 entries). While you are scrolled back, new entries don't move the view, and
+                <strong>"▼ N new — click here or press End to jump to the latest"</strong> appears at the bottom.
+                Click it or press <kbd>End</kbd> to return to the latest (switching the displayed categories also returns to the latest).
             </p>
             <div class="callout">
                 <strong>The "Routes &amp; interlocking" category is hidden by default</strong>.
@@ -391,6 +401,7 @@
                 <li><kbd>Ctrl</kbd>+<kbd>Z</kbd> — Undo an order / <kbd>Ctrl</kbd>+<kbd>Y</kbd> — Redo</li>
                 <li><kbd>F7</kbd> — Open / close the line guide (schedules, running times between stations, calling points)</li>
                 <li><kbd>F</kbd> — Start / stop following the selected train</li>
+                <li><kbd>End</kbd> — Return a scrolled-back log to the latest entries</li>
                 <li><kbd>Home</kbd> — Show the whole line</li>
                 <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrow keys — Move the map</li>
                 <li>Wheel / <kbd>PageUp</kbd> <kbd>PageDown</kbd> / <kbd>Ctrl</kbd>+<kbd>+</kbd> <kbd>Ctrl</kbd>+<kbd>-</kbd> — Zoom the map</li>

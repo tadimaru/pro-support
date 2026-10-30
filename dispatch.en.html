@@ -449,7 +449,7 @@
                 <tr>
                     <td><strong>Track circuit impassable</strong></td>
                     <td>One specified section becomes impassable. Routes that include it can't be set, automatically or manually,
-                        and the signals protecting it show <strong>absolute stop (red)</strong>. It appears dark gray on the map.
+                        and the signals protecting it show <strong>absolute stop (red)</strong>. It appears dark gray on the map, with a <strong>red flash</strong> on top so you can spot it quickly.
                         The notice tells you where it is (for example "Fukushidai-mae Track 2", "Fukushidai-mae station area" or "Between Daigaku-mae and Fukushidai-mae").</td>
                 </tr>
                 <tr>
@@ -465,18 +465,22 @@
             <p>
                 Active incidents are always shown under <strong>"─── Active ───"</strong> at the bottom of the window and
                 <strong>at the top of the Log window</strong>, and you can clear them with <strong>"Release"</strong>.
+                Press <strong>"Location"</strong> on a row to move the map view to the scene (the failed train or the impassable section).
             </p>
             <h3>Random incidents</h3>
             <p>
-                Set <strong>"Random incidents"</strong> in Settings to <strong>Few / Normal / Many</strong>
+                Set <strong>"Random incidents"</strong> in Settings to <strong>Very few / Few / Normal / Many</strong>
                 to practice dispatching without knowing what will happen. The default is <strong>None</strong>, and
                 it applies <strong>only to the sandbox (free play)</strong>
                 (scenarios are excluded because they run on set troubles).
+                The approximate number per day (24 in-game hours) is Very few ~7 / Few ~26 / Normal ~52 / Many ~104.
             </p>
             <ul>
                 <li>Only <strong>moving trains</strong> and <strong>sections between stations</strong> are affected.
-                    Station areas are never blocked, so you never run out of options.</li>
+                    Station areas (station tracks and switches) are never blocked, so you never run out of options.</li>
                 <li>Incidents <strong>recover automatically after a while</strong> (you can of course "Release" them yourself too).</li>
+                <li>In the sandbox, <strong>"Trigger one random incident (recovers automatically)"</strong> in the "Trigger Incident..." window
+                    causes just one right away, regardless of the frequency setting.</li>
             </ul>
         </section>
 
@@ -544,6 +548,7 @@
             <p>
                 Open it with "Window → Show Diagram". The vertical axis is stations (in order of distance) and the horizontal axis is time.
                 By default it shows <strong>2 hours</strong> and follows the current time.
+                The time scale appears at both the top and the <strong>bottom</strong> (the bottom one is hidden when the window is short).
             </p>
             <h3>Three kinds of lines</h3>
             <ul>
@@ -581,7 +586,11 @@
                 <li><strong>Move along the time axis</strong>: drag (with either the left or right button)</li>
                 <li><strong>Zoom in and out</strong>: mouse wheel (from 10 minutes to 24 hours)</li>
                 <li><strong>Select a train path</strong>: left-click</li>
-                <li><strong>Expand or collapse tracks</strong>: <strong>click a station name</strong> on the left edge</li>
+                <li><strong>Expand or collapse tracks</strong>: <strong>click a station name</strong> on the left edge
+                    (when the window is narrow, the hint "｜Click station name = expand/collapse tracks" at the right end of the toolbar is hidden; widen the window to show it)</li>
+                <li><strong>Show trains in one direction only</strong>: each press of <strong>"Dir: both"</strong> at the top cycles
+                    <strong>both → Right → → ← Left</strong>, drawing only the paths of trains running that way on the map.
+                    Each window remembers its setting (it is kept for your next session too)</li>
                 <li>The buttons at the top toggle <strong>Station</strong> / <strong>Depot/Headshunt</strong> / <strong>Follow time</strong> /
                     <strong>Train No.</strong> display.
                     If you lose the current time after panning, press <strong>"Follow time"</strong>.</li>
