@@ -295,6 +295,13 @@
                 (if you close it, bring it back with "Window → Orders").
                 This is where you usually start issuing orders.
             </p>
+            <div class="callout tip">
+                <strong>Right-click a train</strong> (press and release right away) to open a small menu at the mouse position.
+                It offers <strong>Hold at next stop</strong> (<strong>Hold at this stop</strong> if the train is stopped), <strong>Release Hold</strong> and <strong>Delay +1 min</strong>,
+                so you can issue them without looking over at the Orders window. The train is selected as well.
+                Click outside the menu or press <kbd>Esc</kbd> to close it.
+                Holding the right button and moving the mouse still moves the map, as before.
+            </div>
             <p>The top of the window shows the train's <strong>status</strong>:</p>
             <ul>
                 <li><strong>Normal</strong> / <strong>⛔ Held</strong> / <strong>⚠ Line-clear departure</strong> /
@@ -369,7 +376,8 @@
             <h3>What you can do</h3>
             <ul>
                 <li><strong>Terminate Short</strong>: changes the final stop to an earlier station.
-                    The rest of the run is kept as a "draft" that you can hand over to another vehicle later.
+                    For a train on the planned timetable, the rest of the run is kept as a "draft" that you can hand over to another vehicle later.
+                    For an extra service created during rescheduling (not on the planned timetable), the rest of the run is removed, the same as "Terminate Here".
                     If you <strong>leave the terminated vehicle for about a minute without a next service</strong>,
                     a notification tells you, if another train will use that track later
                     (it stays silent for tracks nobody will use, or after the last train).</li>
@@ -380,7 +388,7 @@
                     If you set the switch back before the route is set, the train terminates at that station again.</li>
                 <li><strong>Adjust dwell times</strong>: changes the dwell seconds at each upcoming stop (later times shift accordingly).
                     Instead of seconds, you can also <strong>enter the departure time directly</strong> (the difference from the arrival time becomes the dwell).
-                    If you enter a time earlier than scheduled, it is shown in red as a warning (the setting is still accepted).
+                    If the time you enter departs in an earlier minute than scheduled, it is shown in red as a warning (the setting is still accepted. Against a scheduled 18:10:50, 18:10:00 in the same minute shows no warning, but 18:09:55 does).
                     However, times <strong>before the arrival</strong> and times <strong>more than 1 hour after</strong> the arrival are not accepted (the reason appears in the notification log).
                     Also, <strong>when the train is running late, it departs as soon as its dwell time at that station is over</strong>:
                     the time you enter means "don't depart earlier than this", so it doesn't get in the way of making up the delay.</li>
@@ -478,7 +486,20 @@
             <ul>
                 <li>Only <strong>moving trains</strong> and <strong>sections between stations</strong> are affected.
                     Station areas (station tracks and switches) are never blocked, so you never run out of options.</li>
-                <li>Incidents <strong>recover automatically after a while</strong> (you can of course "Release" them yourself too).</li>
+                <li>What happens is mostly what really happens most often on a railway. Events that stop a train: "Emergency stop button handling (platform / on board)", "Attending to a sick passenger", "Door / train inspection" and "Train failure (smoke, etc.)".
+                    Events that block a section: "Person on the track (safety check)", "Removing fallen objects" and "Signal / safety system failure".
+                    There are also "Speed restriction due to strong wind / heavy rain" and "Level crossing safety check" (a service suspension). Train failures are less common; short events like emergency stop buttons and sick passengers happen most.</li>
+                <li>Incidents <strong>recover automatically after a while</strong> (you can of course "Release" them yourself too).
+                    Roughly: level crossing check 3–5 min, emergency stop button or person on the track 3–8 min, train failure 20–40 min, signal failure 20–60 min, wind or rain speed restriction 60–120 min.</li>
+                <li><strong>"Time to recovery"</strong> in Settings lets you choose <strong>Short (about half) / Normal / Long (about double)</strong> (3 minutes at the shortest, 3 hours at the longest).
+                    It also applies to "Trigger one random incident". Changing it <strong>does not affect incidents already under way</strong>; it applies from the next one. In co-op play the host's setting is used.</li>
+                <li>The log and the fixed display at the top of the Log window show the expected recovery, such as <strong>"Recovery expected 08:30 (12 min left)"</strong>.
+                    Incidents that don't recover automatically (scenario troubles and ones you triggered by hand) show "Recovery expected: unknown".</li>
+                <li><strong>Only after a train failure (smoke, etc.) can the train run no faster than 45 km/h even once it has recovered.</strong>
+                    The restriction stays with the trainset, so it remains after a turnback, as an out-of-service run, and on services after a short termination. The train info shows "running at 45 km/h or below".
+                    Moving it to a nearby station, terminating the service and <strong>sending a spare vehicle as a replacement</strong> keeps the effect on the timetable small. If it isn't in the way, you can also just leave it where it is.
+                    The restriction lifts on its own some time after recovery (you can't tell when), and going to the depot doesn't lift it sooner.
+                    Train failures you trigger by hand don't get it (the same goes for scenarios and the tutorial).</li>
                 <li>In the sandbox, <strong>"Trigger one random incident (recovers automatically)"</strong> in the "Trigger Incident..." window
                     causes just one right away, regardless of the frequency setting.
                     It is treated the same as one that happened on its own, so <kbd>Ctrl</kbd>+<kbd>Z</kbd> does not undo it (use "Release" to clear it).</li>
@@ -535,6 +556,7 @@
                 <strong>train number, train type, destination, delay and order</strong>.
                 Delays are orange and early running is light blue. An order tag appears <strong>only while the train is being kept at a station</strong>:
                 one of "Hold", "Line-clear" or "Delay dep.".
+                A spare vehicle not yet in service shows only its <strong>formation number and "Spare"</strong>, such as <code>1003 Spare</code>.
             </p>
             <p>
                 <strong>When labels overlap, they are stacked vertically and connected with leader lines automatically.</strong>
@@ -587,11 +609,16 @@
                 <li><strong>Move along the time axis</strong>: drag (with either the left or right button)</li>
                 <li><strong>Zoom in and out</strong>: mouse wheel (from 10 minutes to 24 hours)</li>
                 <li><strong>Select a train path</strong>: left-click</li>
-                <li><strong>Expand or collapse tracks</strong>: <strong>click a station name</strong> on the left edge
+                <li><strong>Expand or collapse tracks</strong>: <strong>click the text of a station name</strong> on the left edge. The blank space to the right of the text selects whatever train path runs there
                     (when the window is narrow, the hint "｜Click station name = expand/collapse tracks" at the right end of the toolbar is hidden; widen the window to show it)</li>
                 <li><strong>Show trains in one direction only</strong>: each press of <strong>"Dir: Both"</strong> at the top cycles
                     <strong>"Dir: Both" → "Dir: Right →" → "Dir: ← Left"</strong>, drawing only the paths of trains running that way on the map.
                     Each window remembers its setting (it is kept for your next session too)</li>
+                <li><strong>Hide delays and see the original timetable</strong>: press <strong>"Delays"</strong> at the top to remove the actual and predicted lines and draw
+                    <strong>the planned timetable in train type colors at normal thickness</strong>. Press it again to go back.
+                    This helps when you want to check turnaround pairings, for example. Clicking paths and train numbers also follow the planned lines,
+                    and the yellow selection highlight, the × marks on cancelled trains and the dotted draft lines stay. Each window remembers this (it is kept for your next session too).
+                    The timetable setup screen only shows the plan to begin with, so this button isn't there</li>
                 <li>The buttons at the top toggle <strong>Station</strong> / <strong>Depot/Headshunt</strong> / <strong>Follow time</strong> /
                     <strong>Train No.</strong> display.
                     If you lose the current time after panning, press <strong>"Follow time"</strong>.</li>

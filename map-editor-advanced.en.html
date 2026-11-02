@@ -365,6 +365,12 @@
                 + / − cannot be used while a name is set).
                 If you enter characters that are not accepted, <strong>the box immediately reverts to its previous value</strong>.
             </p>
+            <p>
+                <strong>Track 0</strong> is possible too. Entering <code>0</code> gives the track the name "0", shown as "Track 0"
+                (it works like an alphanumeric name and gets a number for sorting automatically. The diagram orders tracks by that number,
+                so Track 0 does not necessarily come first).
+                To remove a track's assignment, <strong>clear the box</strong>. Negative numbers are not accepted.
+            </p>
             <div class="callout">
                 If you select track circuits that belong to another station and try to register,
                 <strong>a list of the track circuits that will "move"</strong> is shown and you are asked to confirm.
@@ -418,7 +424,7 @@
                     Track labels appear on the topmost and bottommost edges. If you misplace one, use "Undo last corner"; to start over, press <kbd>Esc</kbd>.
                     To change the shape, move the corner coordinates or recreate it.</li>
                 <li><strong>Track labels</strong> — the text shown on the <strong>top / bottom side</strong> of the platform ("1", "2", etc.).
-                    You can also enter alphanumeric names (such as <code>KST</code>) here.</li>
+                    You can also enter alphanumeric names (such as <code>KST</code>) here. Entering <code>0</code> gives "Track 0".</li>
                 <li><strong>Right-click</strong> — select a registered platform to edit or delete it.</li>
             </ul>
             <p>
@@ -577,6 +583,34 @@
                 (if you redraw or extend the route's path, the protection follows along).
                 Specifying protection with <kbd>Shift</kbd>+click is only for block signals.
             </p>
+            <h3 id="signal-shunting">Difference Between Home/Starting and Shunting Signals</h3>
+            <p>
+                First, <strong>what is the same</strong>. Both need a route to cover, and both show stop while the route is not set
+                and while a train is on the route's track circuits. <strong>Trains stop short of either kind of signal when it shows stop</strong>
+                (a shunting signal is not ignored). Speed on a proceed aspect is the same too; a shunting signal does not make trains slower.
+                Levers and routes have no types of their own: <strong>what makes a route a "shunting route" is the type of the signal covering it</strong>.
+            </p>
+            <table>
+                <tr><th style="width:24%;"></th><th>Home / Starting</th><th>Shunting</th></tr>
+                <tr><td><strong>Look on the panel</strong></td><td>A colored circle: red, restricted, caution, reduced speed or proceed</td><td>A white ring. The inside lights green only on proceed and is otherwise off (gray)</td></tr>
+                <tr><td><strong>Aspect conditions (Y, etc.)</strong></td><td>Step down to caution, reduced speed and so on according to the signal ahead</td><td>Not used (anything but proceed just looks off, and reduced speed is not added automatically)</td></tr>
+                <tr><td><strong>Checks on save</strong></td><td>A to-do appears if the next signal is just ahead and the Y condition is empty</td><td>Not checked, and not counted as the "next signal" when checking the signal before it</td></tr>
+                <tr><td><strong>ATC lines</strong></td><td>Two aspects: proceed whenever the route is set</td><td>No change</td></tr>
+                <tr><td><strong>Departure direction in the timetable</strong></td><td>Among routes leaving a track, these are tried first</td><td>Tried after home/starting candidates</td></tr>
+            </table>
+            <p>
+                As a rule of thumb, use <strong>home/starting for signals that trains running on the main line see</strong>, and
+                <strong>shunting for movements with no main signal ahead, such as going in and out of depots and sidings</strong>.
+                The siding and depot routes that station modules generate use shunting signals too.
+            </p>
+            <div class="callout">
+                <strong>Departing from a station and signals.</strong>
+                At its departure time, a train looks at <strong>the next signal</strong> within 400 m of its stopping position and waits at the platform while that signal shows stop.
+                This is the same for starting and shunting signals (and for block signals).
+                If there is no signal within 400 m it simply departs, so trains still work on sidings with no signal.
+                This "wait at the platform" is a per-station setting (<code>requiresDepartureSignal</code> in <code>stations.csv</code>), but it is not shown in the map editor.
+                The default is to wait, and you normally have no need to change it.
+            </div>
             <h3>Placing Home/Starting and Shunting Signals</h3>
             <ol class="step-list">
                 <li>Choose the type and <strong>left-click the map where the signal will stand</strong></li>
@@ -892,11 +926,17 @@
                     one click with the <strong>← → ↑ ↓</strong> buttons.</li>
             </ul>
             <div class="callout warn">
-                <strong>Points are not moved if the destination overlaps another point.</strong>
-                Points that end up in the same position <strong>are treated as connected</strong>,
-                so overlapping them would create unintended track connections.
+                <strong>Points with track connected cannot be placed on top of each other.</strong>
+                Track ends that end up in the same position <strong>are treated as connected</strong>,
+                so overlapping them would create unintended track connections (jump endpoints count as track too).
                 If you see "Cancelled because the destination overlaps existing coordinates," move the other point out of the way first or change the amount of movement.
             </div>
+            <p>
+                <strong>Points with no track connected, such as signal points and platform corners, can be placed on top of any point</strong>
+                (lining up a signal with a platform corner or a track end, for example). Overlapping them does not change how the track is connected.
+                To separate overlapping points, check what to move in the list that appears on left-click
+                (a right-drag grabs just one of the overlapping points, and you can't choose which).
+            </p>
             <div class="callout tip">
                 To shift a whole station, <strong>select the station with a rectangle and use the area move</strong>; it's faster.
                 Points are referenced by ID, so moving them doesn't break links to routes and signals.
