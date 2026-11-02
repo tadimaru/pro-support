@@ -297,7 +297,7 @@
             </p>
             <div class="callout tip">
                 <strong>Right-click a train</strong> (press and release right away) to open a small menu at the mouse position.
-                It offers <strong>Hold at next stop</strong> (<strong>Hold at this stop</strong> if the train is stopped), <strong>Release Hold</strong> and <strong>Delay +1 min</strong>,
+                It offers <strong>Hold at next station</strong> (<strong>Hold at this station</strong> if the train is stopped), <strong>Release Hold</strong> and <strong>Delay departure +1 min</strong>,
                 so you can issue them without looking over at the Orders window. The train is selected as well.
                 Click outside the menu or press <kbd>Esc</kbd> to close it.
                 Holding the right button and moving the mouse still moves the map, as before.
@@ -305,7 +305,7 @@
             <p>The top of the window shows the train's <strong>status</strong>:</p>
             <ul>
                 <li><strong>Normal</strong> / <strong>⛔ Held</strong> / <strong>⚠ Line-clear departure</strong> /
-                    <strong>🔧 Train failure</strong></li>
+                    <strong>🔧 the incident's name</strong> (train failure, attending to a sick passenger and other incidents that stop a train)</li>
             </ul>
 
             <h3>Delay departure: making a train leave later</h3>
@@ -486,9 +486,9 @@
             <ul>
                 <li>Only <strong>moving trains</strong> and <strong>sections between stations</strong> are affected.
                     Station areas (station tracks and switches) are never blocked, so you never run out of options.</li>
-                <li>What happens is mostly what really happens most often on a railway. Events that stop a train: "Emergency stop button handling (platform / on board)", "Attending to a sick passenger", "Door / train inspection" and "Train failure (smoke, etc.)".
-                    Events that block a section: "Person on the track (safety check)", "Removing fallen objects" and "Signal / safety system failure".
-                    There are also "Speed restriction due to strong wind / heavy rain" and "Level crossing safety check" (a service suspension). Train failures are less common; short events like emergency stop buttons and sick passengers happen most.</li>
+                <li>What happens is mostly what really happens most often on a railway. Events that stop a train: "Emergency stop button", "Attending to a sick passenger", "Door / train check" and "Train failure (smoke, etc.)".
+                    Events that block a section: "Person on the track", "Removing fallen object" and "Signal / safety system failure".
+                    There are also "Wind / rain speed restriction" and "Level crossing safety check" (a service suspension). Train failures are less common; short events like emergency stop buttons and sick passengers happen most.</li>
                 <li>Incidents <strong>recover automatically after a while</strong> (you can of course "Release" them yourself too).
                     Roughly: level crossing check 3–5 min, emergency stop button or person on the track 3–8 min, train failure 20–40 min, signal failure 20–60 min, wind or rain speed restriction 60–120 min.</li>
                 <li><strong>"Time to recovery"</strong> in Settings lets you choose <strong>Short (about half) / Normal / Long (about double)</strong> (3 minutes at the shortest, 3 hours at the longest).
