@@ -109,7 +109,7 @@
                 <li><strong>A train stopped at a station starts preparing 20 seconds before departure.</strong>
                     Grabbing a route too early would block opposing and passing trains for a long time.</li>
                 <li><strong>Routes at stations under station control are not set automatically</strong> (you set them with the levers).</li>
-                <li><strong>A train stopped by a train failure makes no requests.</strong></li>
+                <li><strong>A train stopped by a train failure or another incident that stops trains makes no requests.</strong></li>
             </ul>
             <p>
                 Even when a request is made, <strong>the route may not open that time</strong> because of a conflict, an occupied section, and so on.
@@ -226,7 +226,7 @@
             <ul>
                 <li>Trains <strong>being held</strong></li>
                 <li>Trains that were <strong>terminated short or cancelled</strong></li>
-                <li>Trains with a <strong>train failure</strong></li>
+                <li>Trains stopped by a <strong>train failure or another incident that stops trains</strong></li>
                 <li>Trains that <strong>can no longer reach the route</strong> because of an obstruction or a section service suspension</li>
             </ul>
             <div class="callout tip">
@@ -300,6 +300,7 @@
                 It offers <strong>Hold at next station</strong> (<strong>Hold at this station</strong> if the train is stopped), <strong>Release Hold</strong> and <strong>Delay departure +1 min</strong>,
                 so you can issue them without looking over at the Orders window. The train is selected as well.
                 Click outside the menu or press <kbd>Esc</kbd> to close it.
+                Trains with no stop ahead (parked trains, or trains on the last stretch to their terminal) get no menu; they are only selected.
                 Holding the right button and moving the mouse still moves the map, as before.
             </div>
             <p>The top of the window shows the train's <strong>status</strong>:</p>
@@ -559,7 +560,7 @@
                 A spare vehicle not yet in service shows only its <strong>formation number and "Spare"</strong>, such as <code>1003 Spare</code>.
             </p>
             <p>
-                <strong>When labels overlap, they are stacked vertically and connected with leader lines automatically.</strong>
+                <strong>When labels overlap each other or a station name, they are moved aside and connected with leader lines automatically.</strong>
                 The train icons stay where they are and only the labels move, so the positions remain correct.
                 If it gets so crowded that the labels can't be read, the labels in that cluster shorten to <strong>the train number only</strong>
                 (the selected train always shows the full label).
