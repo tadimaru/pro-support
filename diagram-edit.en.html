@@ -231,13 +231,16 @@
                     If the route passes that station again, for example after you switch back, it terminates there again (the ★ also returns if that station had been set with "Terminate Here").
                     Setting a new final stop with "Terminate Here" or "Pin Here" forgets the original one</li>
                 <li><strong>Terminate Here</strong> — Ends the train at that station. Explicitly set stations are marked <strong>★</strong>, and
-                    "Unset Final Stop" sets them back</li>
+                    "Unset Final Stop" sets them back.
+                    The train stops on <strong>the first track it enters at that station</strong> (it doesn't continue to another platform of the same station beyond a switch).
+                    To stop at such platforms separately, <a href="map-editor-advanced.en.html#split-platform">register them as separate stations</a> in the map editor</li>
             </ul>
             <div class="callout">
                 When <strong>"⚠Other direction"</strong> appears on a switch row, no route can be set with the switch in that position.
                 Toggle the position to resolve it.
                 When <strong>"⚠No route registered for this direction"</strong> appears, the map has no route registered, in any position, that enters that switch from the direction the train comes from.
-                Register a route for that direction in the map editor.
+                In the map editor, <a href="map-editor-advanced.en.html#route">register routes</a> from the approach side of the switch (where the train comes from) to both the main line and the branch.
+                When you add a branch, you also need a route into the branch (through the reverse position).
                 <strong>Pressing the name in "└Switch ..." makes that switch blink light blue on the map</strong> (its position doesn't change).
                 If there are routes through that switch, their start levers and end levers light up too (with "⚠No route registered for this direction," only the switch lights up).
                 Pressing a position button also lights up the location after the change. The blinking stops when you select another train path, perform an operation that changes the path's route (changing train type, car type, origin, final stop, or switch position), or leave edit mode.
