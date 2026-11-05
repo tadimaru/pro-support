@@ -488,12 +488,14 @@
             </p>
             <ul>
                 <li>Only <strong>moving trains</strong> and <strong>sections between stations</strong> are affected.
-                    Station areas (station tracks and switches) are never blocked, so you never run out of options.</li>
+                    Station areas (station tracks and switches) are never blocked, so you never run out of options.
+                    The exception is <strong>attending to a sick passenger</strong>, which happens only to <strong>trains stopped at a passenger station</strong> (never between stations, and not to trains waiting to leave their first station).
+                    While the passenger is attended to, the train stays on its track.</li>
                 <li>What happens is mostly what really happens most often on a railway. Events that stop a train: "Emergency stop button", "Attending to a sick passenger", "Door / train check" and "Train failure (smoke, etc.)".
                     Events that block a section: "Person on the track", "Removing fallen object" and "Signal / safety system failure".
                     There are also "Wind / rain speed restriction" and "Level crossing safety check" (a service suspension). Train failures are less common; short events like emergency stop buttons and sick passengers happen most.</li>
                 <li>Incidents <strong>recover automatically after a while</strong> (you can of course "Release" them yourself too).
-                    Roughly: level crossing check 3–5 min, emergency stop button or person on the track 3–8 min, train failure 20–40 min, signal failure 20–60 min, wind or rain speed restriction 60–120 min.</li>
+                    Roughly: level crossing check 3–5 min, emergency stop button or person on the track 3–8 min, sick passenger 5–15 min, train failure 20–40 min, signal failure 20–60 min, wind or rain speed restriction 60–120 min.</li>
                 <li><strong>"Time to recovery"</strong> in Settings lets you choose <strong>Short (about half) / Normal / Long (about double)</strong> (3 minutes at the shortest, 3 hours at the longest).
                     It also applies to "Trigger one random incident". Changing it <strong>does not affect incidents already under way</strong>; it applies from the next one. In co-op play the host's setting is used.</li>
                 <li>The log and the fixed display at the top of the Log window show the expected recovery, such as <strong>"Recovery expected 08:30 (12 min left)"</strong>.
