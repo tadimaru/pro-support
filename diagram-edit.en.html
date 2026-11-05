@@ -203,7 +203,7 @@
                     Duplicates the path shifted later by the value in the interval field (5 minutes by default).
                     <strong>The interval adds up each time you paste again</strong>, so you can create a run of evenly spaced following trains in one go</li>
                 <li><strong>Undo / redo</strong> — While editing, <kbd>Ctrl</kbd>+<kbd>Z</kbd> goes back one step, and <kbd>Ctrl</kbd>+<kbd>Y</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>) redoes it.
-                    Train paths and vehicle placements go back. Train type and stop pattern settings (F4) don't, so once you change and apply them you can't go back past that point. The history is cleared when you reopen the timetable.</li>
+                    Train paths and duty assignments go back (duty assignments count as one step until you close that window). Train type and stop pattern settings (F4) don't, so once you change them and close the window you can't go back past that point. The history is cleared when you reopen the timetable.</li>
                 <li><strong>Shifting times with ← →</strong> — Select a train path, hold the cursor over the diagram or the edit window, and press <kbd>←</kbd> <kbd>→</kbd> to shift it by 5 seconds (1 minute while holding <kbd>Shift</kbd>).
                     Repeated presses go back together with a single <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</li>
                 <li><strong>Dragging a train path</strong> — On the diagram, you can grab <strong>only the selected train path</strong> and shift its times
@@ -268,7 +268,7 @@
                 <li>An arriving train path is linked to the first train path that departs from the same track after it (since there is only one track, the partner is determined by that).
                     If there isn't enough turnback time (20 seconds in the same direction, 60 seconds in the opposite direction), it isn't linked and you are notified</li>
                 <li>Services that are already linked are left alone. It doesn't link train paths with a different car type, or train paths that are the head of a vehicle placement</li>
-                <li>The first press shows how many will be linked. <strong>Press again within 6 seconds to link them</strong> (this can't be undone).
+                <li>The first press shows how many will be linked. <strong>Press again within 6 seconds to link them</strong> (you can go back with <kbd>Ctrl</kbd>+<kbd>Z</kbd>).
                     Train paths that weren't linked are listed in the log with the reason (if there are no pairs to link, the reason appears on the first press).
                     Train paths that are stabled at the end of the day normally have no partner, so only their count is shown</li>
             </ul>
@@ -480,6 +480,7 @@
                 <li>Before running, the current timetable (including unsaved edits) is <strong>backed up automatically</strong> (the 10 most recent).
                     Right away, you can use <strong>"Undo"</strong>; even after closing the window or quitting the game, you can choose one from the <strong>backup list</strong> to restore it
                     (press "Restore This Backup" → "Really Restore," two presses).
+                    With Edit Timetable open, <kbd>Ctrl</kbd>+<kbd>Z</kbd> works too.
                     "Undo" becomes unavailable once you edit a train path afterward (you can still restore from the backup list).
                     Backups stay only on this PC and are not synced with Steam Cloud.</li>
                 <li>The recalculation results are not saved yet. Check them, then save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
