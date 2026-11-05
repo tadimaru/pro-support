@@ -202,6 +202,10 @@
                 <li><strong>Copy / paste</strong> — <kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>Ctrl</kbd>+<kbd>V</kbd>.
                     Duplicates the path shifted later by the value in the interval field (5 minutes by default).
                     <strong>The interval adds up each time you paste again</strong>, so you can create a run of evenly spaced following trains in one go</li>
+                <li><strong>Undo / redo</strong> — While editing, <kbd>Ctrl</kbd>+<kbd>Z</kbd> goes back one step, and <kbd>Ctrl</kbd>+<kbd>Y</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd>) redoes it.
+                    Only train paths go back; vehicle placements and train type settings don't. The history is cleared when you reopen the timetable.</li>
+                <li><strong>Shifting times with ← →</strong> — Select a train path, hold the cursor over the diagram or the edit window, and press <kbd>←</kbd> <kbd>→</kbd> to shift it by 5 seconds (1 minute while holding <kbd>Shift</kbd>).
+                    Repeated presses go back together with a single <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</li>
                 <li><strong>Dragging a train path</strong> — On the diagram, you can grab <strong>only the selected train path</strong> and shift its times
                     (in 5-second steps). Unselected train paths can't be grabbed, so you won't move one by accident</li>
                 <li><strong>Delete</strong> — The red "Delete" button</li>
@@ -302,7 +306,7 @@
                 Spare vehicles, and trains linked to neither the roster nor a through train, are not changed.
                 <br>
                 <strong>Existing train numbers are overwritten, including ones you set by hand (such as the other railway's number given to a through train).
-                There is no undo.</strong> Timetable Builder doesn't save automatically, so before you save (<kbd>Ctrl</kbd>+<kbd>S</kbd>),
+                </strong>With Edit Timetable (F2) open, you can go back with <kbd>Ctrl</kbd>+<kbd>Z</kbd>. Timetable Builder doesn't save automatically, so before you save (<kbd>Ctrl</kbd>+<kbd>S</kbd>),
                 you can go back by reopening the same timetable <strong>without saving</strong> from "System → Open Timetable..."
                 (all other unsaved edits up to that point are reverted too).
             </div>
