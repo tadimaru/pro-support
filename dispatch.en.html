@@ -399,6 +399,7 @@
                 <li><strong>Link to Service</strong>: hands a service left without a vehicle (by terminating short, for example) over to this train.
                     You can also <strong>take over</strong> a service another train is already running
                     (in that case, the original train is stabled).
+                    If you take over a train waiting to depart, any incident that was stopping it <strong>stays with the original vehicle</strong>, and the replacement can run as normal.
                     Candidates are listed <strong>in order of departure time</strong>, and when the list opens, <strong>the scheduled service</strong> is at the top of the view.
                     Services whose scheduled departure has already passed (services that were due to leave before this train arrives, <strong>up to 1 hour earlier</strong>)
                     are hidden above it, so when "▲ N earlier services (scroll up)" appears to the right of the heading,
@@ -453,7 +454,8 @@
                 <tr><th style="width:28%;">Type</th><th>What happens</th></tr>
                 <tr>
                     <td><strong>Train failure</strong></td>
-                    <td>The selected train stops where it is and won't move until it recovers. Its icon on the map turns <strong>red</strong>.</td>
+                    <td>The selected train stops where it is and won't move until it recovers. Its icon on the map turns <strong>red</strong>.
+                    This vehicle's next service (a turnback, for example) won't appear until it recovers either.</td>
                 </tr>
                 <tr>
                     <td><strong>Track circuit impassable</strong></td>
@@ -557,7 +559,7 @@
                 <strong>train number, train type, destination, delay and order</strong>.
                 Delays are orange and early running is light blue. An order tag appears <strong>only while the train is being kept at a station</strong>:
                 one of "Hold", "Line-clear" or "Delay dep.".
-                A spare vehicle not yet in service shows only its <strong>formation number and "Spare"</strong>, such as <code>1003 Spare</code>.
+                A spare vehicle not yet in service shows only its <strong>formation number and "Spare"</strong>, such as <code>1003 Spare</code> (only the number while it has failed, or while the 45 km/h restriction remains after recovery).
             </p>
             <p>
                 <strong>When labels overlap each other or a station name, they are moved aside and connected with leader lines automatically.</strong>
