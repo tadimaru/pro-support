@@ -580,13 +580,19 @@
             </p>
             <p>
                 On a line with branches, the "Whole line" view works like a printed train diagram: each branch's stations are grouped in rows below the junction station,
-                and then <strong>the junction station appears again</strong> before the main line continues. Main-line trains continue from that second junction row,
-                so their train paths don't cross the branch's rows. A branch that joins on the starting-point side (toward the top of the view)
-                is listed from its outer end down to the junction.
+                and then <strong>the junction station appears again</strong> before the main line continues.
+                If two branches leave the same junction, the junction appears three times. Views you create yourself that include a junction are laid out the same way.
+                Main-line trains continue from that second junction row, so their train paths don't cross the branch's rows.
+                The path of a train that runs through the junction breaks off at the first junction row and resumes from the second row at the same time
+                (the train does not terminate or start there).
+                A branch that joins on the starting-point side (toward the top of the view) is listed from its outer end down to the junction,
+                and then <strong>the junction station appears again</strong>.
                 Route-group views ("Main Line", "Toward …") list only that route's stations in a single column.
             </p>
             <p>
-                In every view, <strong>trains running "Right →" on the map slope down to the right, and trains running "← Left" slope up to the right</strong>.
+                In most cases, <strong>trains running "Right →" on the map slope down to the right, and trains running "← Left" slope up to the right</strong>.
+                The exceptions are branches that can only be entered by reversing (on those sections, a train's path slopes down to the right after it reverses,
+                whichever way it runs on the map) and loop lines (lines that return to their starting station).
             </p>
             <h3>Three kinds of lines</h3>
             <ul>
@@ -643,6 +649,8 @@
                     "Standard" restores the scenario's own colors.</li>
                 <li><strong>Switch and create views</strong>: use <strong>"View: ... ▼"</strong> at the top to switch the set of stations shown (a view).
                     On lines with branches, <strong>views for each route, such as the main line or a branch direction, are created automatically</strong>.
+                    Once a view has been saved (including by expanding tracks or saving with "Edit"), it isn't recreated automatically, even after a game update.
+                    See <a href="diagram-edit.en.html#views-after-map">Timetable Builder</a> for how to recreate it.
                     With <strong>"Edit"</strong>, choose a view name and stations to create, modify or delete views
                     ("Whole line" can't be deleted).</li>
                 <li><strong>Add more windows</strong>: "Window → <strong>Add Diagram Window</strong>" lets you
