@@ -230,11 +230,53 @@
             <p>
                 If you realize after drawing that you mixed up normal and reverse, right-click the switch to select it and use
                 <strong>"Swap Normal/Reverse (updates routes)"</strong> (single turnouts only). The switch instructions in the routes that use it are reversed too.
+                Double crossovers do not have this button (see <a href="#double-crossover">Normal and Reverse on a Double Crossover</a>).
             </p>
             <div class="callout warn">
                 In a double crossover, <strong>Up Straight and Down Straight are separate, parallel lines</strong>, so they do not share endpoints.
                 If you put a crossover track in a straight slot, you are told so when it is registered, and it is undone.
             </div>
+            <h3 id="double-crossover">Normal and Reverse on a Double Crossover</h3>
+            <p>
+                A double crossover is one switch with <strong>three positions</strong>. Which one is normal and which ones are reverse
+                is decided by <strong>which slot you put each branch in</strong>.
+            </p>
+            <table>
+                <tr><th style="width:22%;">Position</th><th>Branches it lets trains through</th><th style="width:20%;">Shown in the route list as</th><th style="width:22%;">Shown in Change Timetable as</th></tr>
+                <tr><td><strong>Normal</strong></td><td>Up Straight and Down Straight (straight through the two parallel lines)</td><td>Straight</td><td>Normal</td></tr>
+                <tr><td><strong>Reverse (Crossover 1)</strong></td><td>Crossover 1 (/)</td><td>Reverse 1</td><td>Reverse</td></tr>
+                <tr><td><strong>Reverse (Crossover 2)</strong></td><td>Crossover 2 (\)</td><td>Reverse 2</td><td>Reverse 2</td></tr>
+            </table>
+            <p>
+                "The route list" is the switch directions shown when you select a route in the map editor. "Change Timetable" is the choice you get
+                when you <a href="dispatch.en.html#diagram-change">change switch directions</a> for a train while dispatching.
+            </p>
+            <div class="callout warn">
+                <strong>On a double crossover, normal is always "both lines straight". It cannot be swapped.</strong>
+                If you entered the branches wrongly (for example, Crossover 1 and Crossover 2 the wrong way round), select the double crossover,
+                <strong>delete it, and enter the four branches again</strong>.
+                Deleting it also removes the track used only by that double crossover and the routes that pass through it
+                (everything that will be removed is listed in the confirmation window; if you make a mistake, <kbd>Ctrl</kbd>+<kbd>Z</kbd> brings it back).
+                We recommend checking the branches with the colors below before you make routes.
+            </div>
+            <p><strong>Which branch you are entering, and how to read the branches you entered (map editor)</strong></p>
+            <ul>
+                <li>When you choose the "Double Crossover" type, <strong>"Current direction"</strong> lists Up Straight, Down Straight, Crossover 1 (/) and Crossover 2 (\).
+                    The selected one is <strong>the branch the next track circuit you click will go into</strong> (after you enter one, it moves on to the next).
+                    Below it, the names of the track circuits entered in each slot are shown (the headings "Straight Up, Straight Down, Reverse 1, Reverse 2" are these four slots in the same order).</li>
+                <li>The color swatches are <strong>Up Straight = blue, Down Straight = light blue, Crossover 1 = orange, Crossover 2 = purple</strong>. The track circuits you entered take the same colors on the map.</li>
+                <li>When you select a registered double crossover by right-clicking it (or by clicking its row in the list), the left panel lists
+                    "Up Straight / Down Straight / Crossover 1 / Crossover 2" with their track circuits, and the map is painted in the same four colors.</li>
+                <li>The map editor has no "current position" for a switch. When you select a route, the list shows the position that route needs from the double crossover
+                    (Straight / Reverse 1 / Reverse 2).</li>
+            </ul>
+            <p><strong>Reading the current position (dispatch screen)</strong></p>
+            <ul>
+                <li>The branches of the double crossover that are <strong>currently set are drawn in their normal colors</strong> (white, yellow or red), and the <strong>branches that are not set are drawn in dim gray</strong>.
+                    In normal, the two straight lines are bright and the two crossovers are dim; in reverse (Crossover 1), only Crossover 1 is bright and the other three are dim.</li>
+                <li>When you point at a track, the bottom left shows that track circuit and the ID of the switch it belongs to
+                    (<a href="help.en.html#hover-label">Cursor Info in the Bottom Left</a>). Use it to match the switches in the Change Timetable list.</li>
+            </ul>
             <h3>1-to-N (Three-Way Switches, etc.)</h3>
             <p>
                 A shape where one switch divides into three or more directions. Use it for the three-way switches of monorails and automated guideway transit,
