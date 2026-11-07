@@ -358,7 +358,7 @@
         <section id="classes">
             <h2>🏷 F4 Train Types</h2>
             <p>
-                <kbd>F4</kbd> opens <strong>"Train Types (F4 to exit)"</strong>. It has 4 tabs.
+                <kbd>F4</kbd> opens <strong>"Train Types (F4 to exit)"</strong>. It has 5 tabs.
             </p>
             <h3>Train Types</h3>
             <p>
@@ -397,6 +397,31 @@
             <p>
                 Sections left blank ("per train type") run at the train type's maximum speed. If you change maximum speeds and close <kbd>F4</kbd>, the times of every train path are laid out again. If any arrival becomes later so that
                 <strong>a link now arrives at or after the next service's departure</strong>, a notification shows the count and examples. Fix the departure times.
+            </p>
+            <h3 id="run-time">Run Times</h3>
+            <p>
+                You can set the time taken between stations (the run time) <strong>per train type, per section, and per direction</strong>.
+                Use it to add slack so trains don't fall behind when they catch up with the train ahead in the rush hour, or to copy a real line's standard run times.
+                Choose a train type with ◀ ▶ at the top and a section from the list; <strong>two fields, one for each direction</strong>, appear below.
+                Enter <strong>min:sec</strong> such as "2:30" (or just seconds) and press "Apply".
+                To the right of each field you can see how long the current plan takes for that section.
+            </p>
+            <ul>
+                <li><strong>If you fill in only one direction, it applies to both</strong>. Fill in both only when the directions should differ.
+                    "Copy top to bottom" and "Copy bottom to top" copy one field to the other so you can then adjust it.</li>
+                <li>Like Section Speeds, sections are pairs of <strong>adjacent stations</strong> (passed stations count as boundaries), so you can make one stretch fast and the next one slow.</li>
+                <li>Planned times use the <strong>longer of the calculated time and the run time</strong> for each section. Values too short for the vehicle's performance are treated as calculated,
+                    and when you close <kbd>F4</kbd> a notification shows how many sections were affected, with an example.</li>
+                <li>Leaving a field blank ("Clear") returns that direction to the calculated time.</li>
+            </ul>
+            <p>
+                <strong>Trains also run to match the run times</strong>. In sections with a run time, a train holds its speed down so that it reaches (or passes) the next station
+                <strong>a little before the planned time (about 10 seconds)</strong>. <strong>When it is running late, it is not held back</strong> and runs at the highest permitted speed to recover.
+                In sections without a run time, trains run as fast as before.
+            </p>
+            <p>
+                On the same tab, <strong>"Time step"</strong> sets the unit that planned times are rounded up to: <strong>5, 10, or 15 seconds</strong> (per timetable).
+                When you change it and close <kbd>F4</kbd>, the times of every train path are laid out again with that step.
             </p>
             <div class="callout warn">
                 <strong>Changes to the master are applied to the timetable when you close <kbd>F4</kbd></strong>.
