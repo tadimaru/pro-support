@@ -120,7 +120,7 @@
                 <li><strong>Start time</strong> — The time this timetable starts (in minutes; seconds are rounded down to 00).
                     <strong>You can't set a time later than the earliest train</strong> (trying to do so shows a warning).
                     The window shows "Earliest train: departs ..." as a guide.</li>
-                <li><strong>Round times to</strong> — The unit that times between stations are rounded up to (<strong>5, 10, or 15 seconds</strong>).
+                <li><strong>Round times to</strong> — The unit that running times between stations (both calculated and entered) are rounded up to (<strong>5, 10, or 15 seconds</strong>).
                     Pressing one shows a confirmation describing the effects; "Change and recalculate" lays out every train path again with that step.
                     First departures and dwell times stay, so <strong>times at later stations and terminals shift</strong> and turnaround times of linked services change
                     (links whose turnaround drops to 0 or less are reported). It can't be undone with <kbd>Ctrl</kbd>+<kbd>Z</kbd>, but if you make no other edits, choosing the original step again restores the original times.
@@ -230,6 +230,7 @@
                     The <strong>"+30 s"</strong> and <strong>"+1 min"</strong> buttons on that row add that much and take effect immediately.
                     In the <strong>"└Departure"</strong> field below it, you can also enter the <strong>departure time (h:m:s)</strong>.
                     Press "Apply" or <kbd>Enter</kbd> and the dwell seconds are calculated from the arrival time (you can't enter a time before the arrival or more than 1 hour after it).
+                    If you enter times at several stations first, <strong>they are all applied from the top station down</strong>. If one is rejected, its station is named in the notification and times entered for stations below it are discarded.
                     Changing one station shifts the times of every station after it, so <strong>work from the top station down</strong>.
                     <kbd>Tab</kbd> moves hour → minute → second → the next station's "└Departure" (<kbd>Shift</kbd>+<kbd>Tab</kbd> goes back)</li>
                 <li><strong>Switch (└Switch)</strong> — Click a switch's position to toggle it, and
@@ -413,13 +414,13 @@
                 Use it to add slack so trains don't fall behind when they catch up with the train ahead in the rush hour, or to copy a real line's standard running times.
                 Choose a train type with ◀ ▶ at the top and a section from the list; <strong>two fields, one for each direction</strong>, appear below.
                 Enter <strong>min:sec</strong> such as "2:30" (or just seconds) and press "Apply".
-                To the right of each field you can see the <strong>calculated time</strong> without a running time (what the vehicle's performance allows). If you switch section or train type, or close <kbd>F4</kbd>, without pressing Apply, the typed values are applied.
+                To the right of each field you can see the <strong>approximate calculated time</strong> without a running time (measured on one train path of that train type; what the vehicle's performance allows). <kbd>Enter</kbd> also applies, and if you switch section or train type, or close <kbd>F4</kbd>, without pressing Apply, the typed values are applied.
             </p>
             <ul>
                 <li><strong>If you fill in only one direction, it applies to both</strong>. Fill in both only when the directions should differ.
                     A field you leave empty shows, greyed out, the value that actually applies ("same as opposite" or "as calculated"). Values in parentheses in the list are borrowed from the opposite direction.
                     "Copy top to bottom" and "Copy bottom to top" copy one field to the other and apply it at once.</li>
-                <li><strong>"+5 s", "+10 s" and "+1 min"</strong> next to each field add to that direction's value and apply at once. If the field is empty, they add to the value that currently applies (the opposite direction's value or the calculated time). Buttons that aren't a multiple of the rounding step (such as +5 s and +10 s with a 15-second step) are disabled.</li>
+                <li><strong>"+5 s", "+10 s" and "+1 min"</strong> next to each field add to that direction's value and apply at once. If the field is empty, they add to the value that currently applies (the opposite direction's value or the calculated time). Buttons that aren't a multiple of the rounding step (such as +5 s and +10 s with a 15-second step) are greyed out and only show the reason when pressed.</li>
                 <li>Like Section Speeds, sections are pairs of <strong>adjacent stations</strong> (passed stations count as boundaries), so you can make one stretch fast and the next one slow.</li>
                 <li>Planned times use the <strong>longer of the calculated time and the running time</strong> for each section. Values too short for the vehicle's performance are treated as calculated,
                     and when you close <kbd>F4</kbd> a notification shows how many sections were affected, with an example.</li>
