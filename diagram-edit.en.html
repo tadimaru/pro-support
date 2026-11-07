@@ -120,10 +120,15 @@
                 <li><strong>Start time</strong> — The time this timetable starts (in minutes; seconds are rounded down to 00).
                     <strong>You can't set a time later than the earliest train</strong> (trying to do so shows a warning).
                     The window shows "Earliest train: departs ..." as a guide.</li>
+                <li><strong>Round times to</strong> — The unit that times between stations are rounded up to (<strong>5, 10, or 15 seconds</strong>).
+                    Pressing one shows a confirmation describing the effects; "Change and recalculate" lays out every train path again with that step.
+                    First departures and dwell times stay, so <strong>times at later stations and terminals shift</strong> and turnaround times of linked services change
+                    (links whose turnaround drops to 0 or less are reported). It can't be undone with <kbd>Ctrl</kbd>+<kbd>Z</kbd>, but if you make no other edits, choosing the original step again restores the original times.
+                    Like other edits, save it with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
                 <li><strong>Display name / description</strong> — The name and one-line description shown on the timetable selection screen.</li>
             </ul>
             <div class="callout">
-                These two settings are <strong>written to the file as soon as you press "Apply" or "Save"</strong>
+                The start time and the display name / description are <strong>written to the file as soon as you press "Apply" or "Save"</strong>
                 (no <kbd>Ctrl</kbd>+<kbd>S</kbd> needed). Note that this behaves differently from all other edits.
             </div>
             <p>
@@ -225,7 +230,8 @@
                     The <strong>"+30 s"</strong> and <strong>"+1 min"</strong> buttons on that row add that much and take effect immediately.
                     In the <strong>"└Departure"</strong> field below it, you can also enter the <strong>departure time (h:m:s)</strong>.
                     Press "Apply" or <kbd>Enter</kbd> and the dwell seconds are calculated from the arrival time (you can't enter a time before the arrival or more than 1 hour after it).
-                    Changing one station shifts the times of every station after it, so <strong>work from the top station down</strong></li>
+                    Changing one station shifts the times of every station after it, so <strong>work from the top station down</strong>.
+                    <kbd>Tab</kbd> moves hour → minute → second → the next station's "└Departure" (<kbd>Shift</kbd>+<kbd>Tab</kbd> goes back)</li>
                 <li><strong>Switch (└Switch)</strong> — Click a switch's position to toggle it, and
                     <strong>the route and times are recalculated on the spot</strong>. The arrival track changes too.
                     You can't choose a position for which no route can be laid out; a warning appears and it reverts.
@@ -413,6 +419,7 @@
                 <li><strong>If you fill in only one direction, it applies to both</strong>. Fill in both only when the directions should differ.
                     A field you leave empty shows, greyed out, the value that actually applies ("same as opposite" or "as calculated"). Values in parentheses in the list are borrowed from the opposite direction.
                     "Copy top to bottom" and "Copy bottom to top" copy one field to the other and apply it at once.</li>
+                <li><strong>"+5 s", "+10 s" and "+1 min"</strong> next to each field add to that direction's value and apply at once. If the field is empty, they add to the value that currently applies (the opposite direction's value or the calculated time).</li>
                 <li>Like Section Speeds, sections are pairs of <strong>adjacent stations</strong> (passed stations count as boundaries), so you can make one stretch fast and the next one slow.</li>
                 <li>Planned times use the <strong>longer of the calculated time and the running time</strong> for each section. Values too short for the vehicle's performance are treated as calculated,
                     and when you close <kbd>F4</kbd> a notification shows how many sections were affected, with an example.</li>
@@ -424,8 +431,7 @@
                 In sections without a running time, trains run as fast as before.
             </p>
             <p>
-                On the same tab, <strong>"Round times to"</strong> sets the unit that planned times are rounded up to: <strong>5, 10, or 15 seconds</strong> (per timetable).
-                When you change it and close <kbd>F4</kbd>, the times of every train path are laid out again with that step.
+                The unit that planned times are rounded up to (<strong>5, 10, or 15 seconds</strong>, per timetable) is chosen with "Round times to" in <a href="#scenario-settings">Scenario Settings</a>.
             </p>
             <div class="callout warn">
                 <strong>Changes to the master are applied to the timetable when you close <kbd>F4</kbd></strong>.
