@@ -1059,7 +1059,7 @@
             <ul>
                 <li><strong>ID</strong> — Becomes the image name for a custom icon (half-width letters, digits, <code>_</code> and <code>-</code>).
                     You can also set it in the new car type form (if left empty, a number such as <code>TT_001</code> is given).
-                    If you change the ID later, the icon image you placed is renamed to the new ID as well
+                    If you change the ID later, the icon image you placed is renamed to the new ID as well <strong>when you save</strong> (undo with <kbd>Ctrl</kbd>+<kbd>Z</kbd> before saving and the image is left as is; a duplicated car type gets its copy of the image when you save, too)
                     (if an image with the new name already exists, it is not renamed and a message says so).</li>
                 <li><strong>Cars per trainset / Car length</strong> — With 18, 20 and 25 m buttons. The trainset length is shown on the spot.</li>
                 <li><strong>Max speed / Acceleration / Deceleration</strong> — km/h, km/h/s.</li>
@@ -1091,14 +1091,14 @@
                 <tr><td><strong>Single-track flag</strong></td><td>Track Bulk</td><td>Single track has no flag / it is set on double track / it is set on a platform track</td></tr>
                 <tr><td><strong>Platform length</strong></td><td>Car type</td><td>The longest trainset doesn't fit on any platform track (shorten the vehicles or rebuild the station)</td></tr>
                 <tr><td><strong>Unused lever</strong></td><td>Lever</td><td>A lever not used by any route (pressing it does nothing; delete it if not needed)</td></tr>
-                <tr><td><strong>Signal without a route</strong></td><td>Signal</td><td>The route was deleted but its signal was left behind (maps made before v0.4.5; it can only show red)</td></tr>
+                <tr><td><strong>Signal without a governing route</strong></td><td>Signal</td><td>The route was deleted but its signal was left behind (maps made before v0.4.5; it can only show red)</td></tr>
                 <tr><td><strong>Station Levers</strong></td><td>Station Levers</td><td>A lever is not assigned to a station (manual/auto station control doesn't work)</td></tr>
                 <tr><td><strong>Station abbreviation</strong></td><td>Station</td><td>The 2-char abbreviation is 3 or more characters / the 1-char abbreviation is 2 or more (maps with hand-written CSV)</td></tr>
                 <tr><td><strong>Signal references</strong></td><td>Signal</td><td>The <strong>display name was changed</strong> of a signal that an aspect condition points to (that condition will never hold) / a protected track circuit is gone / the CSV was written by hand</td></tr>
             </table>
             <p>
-                <strong>Unused levers</strong> and <strong>signals without a route</strong> can be removed in one go with <strong>"Delete all"</strong> on their heading.
-                The items are listed in a confirmation window first. Track circuits are never included. If you make a mistake, a single <kbd>Ctrl</kbd>+<kbd>Z</kbd> brings everything back.
+                <strong>Unused levers</strong> and <strong>signals without a governing route</strong> can be removed in one go with <strong>"Delete all"</strong> on their heading.
+                The items are listed in a confirmation window first. Track circuits are never included. If you placed levers first and haven't made their routes yet, those levers are deleted too (use it after you finish making routes). If you make a mistake, a single <kbd>Ctrl</kbd>+<kbd>Z</kbd> brings everything back.
             </p>
             <div class="callout">
                 <strong>Errors (red) cannot be saved.</strong> Only things that will definitely break if left alone
