@@ -190,12 +190,14 @@
                 <li>In <strong>"Create from a list of departure times"</strong> on the "Create New Train Path" tab, enter the departure times from the origin, such as <code>6:00, 6:12, 6:31</code>.
                     You can separate them with commas, line breaks, spaces, or tabs, and a list copied from a spreadsheet or timetable can be entered with <strong>"Paste"</strong> (or <kbd>Ctrl</kbd>+<kbd>V</kbd> in the field).
                     Besides "h:mm" and "h:mm:ss", forms without a colon such as <code>600</code> and <code>0612</code> are also read</li>
-                <li>Press <strong>"Create train paths at these times"</strong></li>
+                <li>Press <strong>"Create train paths at these times"</strong>. If at least one train path is created, the field is cleared (so pressing it again doesn't stack the same train paths)</li>
             </ol>
             <p>
                 The new train paths have <strong>blank train numbers</strong> (add them later, for example with "Bulk Train Numbering"). They aren't linked to other services.
                 No train path is created at the template's own departure time. If even one time can't be read, nothing is created and the problem is shown in the notifications.
                 A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> removes all the train paths created at once.
+                If you click a train path on the diagram to pick a different template after entering times, the "Create New Train Path" tab stays open.
+                The template must be a single train path (if several are selected, select one again with a normal click).
             </p>
 
             <h3>Fixing a Train Path You Made</h3>
@@ -256,7 +258,8 @@
                     (changing only part of a chain that runs with the same vehicle would cause a car type mismatch). If train paths you didn't select also change, their number is shown in the notification</li>
                 <li><strong>Change dwell time</strong> — Choose a station and enter seconds. Only train paths that <strong>stop at that station en route</strong> change (those starting, ending, or passing there are skipped)</li>
             </ul>
-            <p>A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the applied changes all at once. Applying clears the checks, and reopening the window also resets the checks and fields (so the previous values don't shift things twice). The window also closes with <kbd>Esc</kbd>.</p>
+            <p>If "Shift departure times" would put even one train path before 0:00, <strong>nothing is changed</strong>, including the other items (adjust the shift amount or uncheck the shift).
+                A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the applied changes all at once. Applying clears the checks, and reopening the window also resets the checks and fields (so the previous values don't shift things twice). The window also closes with <kbd>Esc</kbd>.</p>
 
             <h3>Adjusting the Route and Stops (the "Route" Field)</h3>
             <p>The stations and switches the selected train path passes are listed from top to bottom.</p>
