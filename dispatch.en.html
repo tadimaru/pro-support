@@ -261,6 +261,8 @@
             <p>
                 A route that needs switches thrown opens after <strong>3 seconds of switch movement</strong>.
                 When you click an end lever, it glows yellow for 1 second so you can see that it was pressed.
+                The two switches at either end of a single crossover (a diagonal track joining two parallel tracks) <strong>are thrown together</strong>.
+                Setting a straight route also returns the switch at the other end of the crossover to straight.
             </p>
             <div class="callout tip">
                 <strong>When a train enters the start of a route, that route is released automatically.</strong>
@@ -280,6 +282,7 @@
                 <li><strong>Locked, waiting for a train to pass</strong></li>
                 <li><strong>Impassable because of an incident</strong></li>
                 <li><strong>A train is occupying the overlap section</strong></li>
+                <li><strong>A crossover switch cannot be thrown</strong>: a train is on its partner switch, which moves together with it, or another route is using it.</li>
             </ul>
             <div class="callout warn">
                 <strong>Approach locking:</strong> For safety, a route that a train is approaching can't be released right away.
@@ -306,6 +309,7 @@
             <p>The top of the window shows the train's <strong>status</strong>:</p>
             <ul>
                 <li><strong>Normal</strong> / <strong>⛔ Held</strong> / <strong>⚠ Line-clear departure</strong> /
+                    <strong>⚠ Line-clear departure (section)</strong> (while running inside a line-clear section) /
                     <strong>🔧 the incident's name</strong> (train failure, attending to a sick passenger and other incidents that stop a train)</li>
             </ul>
 
@@ -355,6 +359,21 @@
                 A standing order that <strong>holds the train, once its scheduled time has come, until the whole line to the next stop is clear</strong>.
                 It is checked at every station until you release it. Use it when you don't want a train charging into a section that is backed up ahead.
             </p>
+            <p>
+                You can also <strong>set it for a section</strong>. In <strong>"Gameplay → Hold / Release Departures..."</strong> in the top menu,
+                go to <strong>"Line-clear by section"</strong>, choose Station A, Station B and the <strong>direction</strong> (Both / "Toward (station)"),
+                and press <strong>"Set line-clear for this section"</strong>.
+                No mark is put on the trains: a train runs with line-clear departure <strong>only while it runs inside that section</strong>
+                (it returns to normal once it leaves the section, and it applies again if the train turns back and runs through the same section).
+                It also applies to trains that enter the section later.
+                Sections in effect are listed in the same panel and pinned at the top of the screen; "Location" moves the map to the section and "Release" cancels it.
+            </p>
+            <div class="callout">
+                To take just one train in the section out of it, press
+                <strong>"Release line-clear (remove from section line-clear)"</strong> in the Orders window.
+                That train then runs normally until it leaves the section or turns back into its next service.
+                Setting a line-clear section again brings removed trains back under it.
+            </div>
 
             <div class="callout tip">
                 You can undo any order with <kbd>Ctrl</kbd>+<kbd>Z</kbd> (redo with <kbd>Ctrl</kbd>+<kbd>Y</kbd>).
@@ -387,6 +406,14 @@
                     You can't change switches whose route is already set or that the train has already entered.
                     Even if the change means the train no longer passes its final stop, the original final stop is remembered (below the final stop in the list, "⚠The current path doesn't pass the original final stop ..." is shown).
                     If you set the switch back before the route is set, the train terminates at that station again.</li>
+                <li><strong>Into headshunt</strong>: the button in the "└Headshunt" row under a station makes
+                    <strong>a headshunt or depot track that can be entered from that station without passing another passenger station</strong> the destination
+                    (the train type stays the same; the final stop becomes the headshunt).
+                    If there is only one such track, one click is enough. If there are several, choose from the list of tracks.
+                    Tracks with a train on them, or that another train is due to use, are dimmed with the reason.
+                    The switch directions are found automatically, so you don't need to terminate the train and set up a separate deadhead.
+                    Once in the headshunt, send it out in the opposite direction with <strong>Create new service</strong>.
+                    If the train would no longer connect to its next service, a confirmation bar appears. <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes it.</li>
                 <li><strong>Adjust dwell times</strong>: changes the dwell seconds at each upcoming stop (later times shift accordingly).
                     Instead of seconds, you can also <strong>enter the departure time directly</strong> (the difference from the arrival time becomes the dwell).
                     If the time you enter departs in an earlier minute than scheduled, it is shown in red as a warning (the setting is still accepted. Against a scheduled 18:10:50, 18:10:00 in the same minute shows no warning, but 18:09:55 does).
@@ -408,6 +435,10 @@
                     and set up a <strong>turnback</strong> or <strong>continuing</strong> service.</li>
                 <li><strong>Unlink</strong>: breaks the link to the following service
                     (you can't unlink once the following service has started running).</li>
+                <li><strong>Renumber a train</strong>: type into the <strong>"Train no."</strong> field at the top right of the window and press <strong>"Change"</strong>
+                    (or <kbd>Enter</kbd>). Works for running trains, trains waiting to depart, and drafts left over after terminating short.
+                    Only <strong>that service</strong> changes; the number of the service after the turnback stays as it is.
+                    If another train with the same number runs at the same time, the notification log warns you, but the change still goes through.</li>
             </ul>
 
             <h3>Setting up a new turnback</h3>
@@ -416,9 +447,15 @@
                     You can also fill in the departure time with one click using the <strong>"Current time"</strong> (depart right now) and
                     <strong>"Earliest departure"</strong> (the earliest time the original service can arrive and turn back)
                     buttons.</li>
-                <li>Press <strong>"Create / Recalculate Path"</strong> and a path is drawn automatically to the end of the line.</li>
+                <li>The <strong>"Train no."</strong> field is already filled in using the same rule as "Bulk Train Numbering" in timetable editing
+                    (the hour of the first departure + the vehicle's formation number + a letter; when you send out a spare vehicle, the spare's formation number).
+                    It is renumbered when you change the direction or departure time. You can also overwrite it with any number you like.</li>
+                <li>Press <strong>"Create / Recalculate Path"</strong> and a path is drawn automatically to the end of the line.
+                    If several departure routes leave the track, they are tried in turn.
+                    If none works, <strong>the reason and how to fix it</strong> are shown in the path area (for example, that another track of the same station or the opposite direction would work).</li>
                 <li>Looking at the resulting draft path, adjust <strong>"Terminate Here"</strong>, dwell seconds, extra stops and skip stops,
-                    and switch directions.</li>
+                    and switch directions. <strong>"Change destination…"</strong> at the bottom of the path list extends the path to the station and track you pick,
+                    finding the switch directions automatically (the same as in timetable editing).</li>
                 <li>Confirm with <strong>"Confirm (couple the vehicle)"</strong>. To give up, use "Discard Draft".</li>
             </ol>
             <p>
@@ -653,6 +690,11 @@
                     See <a href="diagram-edit.en.html#views-after-map">Timetable Builder</a> for how to recreate it.
                     With <strong>"Edit"</strong>, choose a view name and stations to create, modify or delete views
                     ("Whole line" can't be deleted).</li>
+                <li id="flip-vertical"><strong>Flip vertically</strong>: Open "Edit" and press <strong>"Flip vertically (current view: ...)"</strong>
+                    to swap the top and bottom of the vertical axis of the view currently shown (press again to restore). You can choose whether the origin or the terminus is at the top.
+                    The order of stations itself doesn't change, and the order of expanded track rows (track 1 at the top) stays the same.
+                    It is remembered per view and can also be set for "Whole line". By default views are not flipped.
+                    When flipped, trains running to the right (→) appear as lines rising to the right.</li>
                 <li><strong>Add more windows</strong>: "Window → <strong>Add Diagram Window</strong>" lets you
                     line up as many as 5. Each window has its own view, zoom, time following, position and size, so
                     you can compare the main line and a branch line side by side. To match the zoom,

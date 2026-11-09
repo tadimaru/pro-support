@@ -180,6 +180,24 @@
                 the times at a portal are "the time it appears" and "the time it disappears."
             </div>
 
+            <h3 id="from-times">Creating Many Trains from a List of Departure Times</h3>
+            <p>
+                To copy a timetable with irregular intervals, you can <strong>use a train path you made as a template and list only the departure times from the origin</strong>
+                (for even intervals, "Copy / paste" below is quicker).
+            </p>
+            <ol>
+                <li>Select the train path to use as the template on the diagram or in the list (train type, car type, route, stops, and dwell-second overrides are all copied as they are)</li>
+                <li>In <strong>"Create from a list of departure times"</strong> on the "Create New Train Path" tab, enter the departure times from the origin, such as <code>6:00, 6:12, 6:31</code>.
+                    You can separate them with commas, line breaks, spaces, or tabs, and a list copied from a spreadsheet or timetable can be entered with <strong>"Paste"</strong> (or <kbd>Ctrl</kbd>+<kbd>V</kbd> in the field).
+                    Besides "h:mm" and "h:mm:ss", forms without a colon such as <code>600</code> and <code>0612</code> are also read</li>
+                <li>Press <strong>"Create train paths at these times"</strong></li>
+            </ol>
+            <p>
+                The new train paths have <strong>blank train numbers</strong> (add them later, for example with "Bulk Train Numbering"). They aren't linked to other services.
+                No train path is created at the template's own departure time. If even one time can't be read, nothing is created and the problem is shown in the notifications.
+                A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> removes all the train paths created at once.
+            </p>
+
             <h3>Fixing a Train Path You Made</h3>
             <p>
                 Click a train path in the window's list or on the diagram to select it (the window switches to the "Edit Existing Train Path" tab automatically).
@@ -216,6 +234,28 @@
                 <li><strong>Delete</strong> — The red "Delete" button</li>
             </ul>
 
+            <h3 id="bulk-change">Changing Several Train Paths Together</h3>
+            <p>While Edit Train Paths (<kbd>F2</kbd>) is open, you can select several train paths on the diagram.</p>
+            <ul>
+                <li><strong>Select an area</strong> — Drag while holding <kbd>Shift</kbd> to select every train path whose line crosses the rectangle
+                    (also hold <kbd>Ctrl</kbd> to add to the current selection)</li>
+                <li><strong>Add or remove one at a time</strong> — Click a train path while holding <kbd>Ctrl</kbd></li>
+                <li>A normal click goes back to selecting a single train path. Selected train paths are highlighted in yellow</li>
+            </ul>
+            <p>
+                Selected train paths <strong>all move together</strong> with <kbd>←</kbd> <kbd>→</kbd> and dragging (you can grab any of them; nothing moves if even one would go before 0:00).
+                While two or more are selected, the top right of the "Edit Existing Train Path" tab becomes <strong>"Bulk change…"</strong>, which opens a window for changing the following together.
+                <strong>Only the checked items</strong> change when you press "Apply checked items" (choosing a value with ◀ ▶ checks that item).
+            </p>
+            <ul>
+                <li><strong>Shift departure times</strong> — Shift whole train paths with + / − and minutes and seconds</li>
+                <li><strong>Change train type</strong> — Calling points, dwell seconds, and running times are recalculated for that type (departure time, route, and final stop stay the same)</li>
+                <li><strong>Change car type</strong> — The car type is aligned <strong>for each whole service (linked chain)</strong> of the selected train paths
+                    (changing only part of a chain that runs with the same vehicle would cause a car type mismatch). If train paths you didn't select also change, their number is shown in the notification</li>
+                <li><strong>Change dwell time</strong> — Choose a station and enter seconds. Only train paths that <strong>stop at that station en route</strong> change (those starting, ending, or passing there are skipped)</li>
+            </ul>
+            <p>A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the applied changes all at once.</p>
+
             <h3>Adjusting the Route and Stops (the "Route" Field)</h3>
             <p>The stations and switches the selected train path passes are listed from top to bottom.</p>
             <p>
@@ -244,6 +284,15 @@
                     "Unset Final Stop" sets them back.
                     The train stops on <strong>the first track it enters at that station</strong> (it doesn't continue to another platform of the same station beyond a switch).
                     To stop at such platforms separately, <a href="map-editor-advanced.en.html#split-platform">register them as separate stations</a> in the map editor</li>
+                <li><strong>Change destination…</strong> — The button at the bottom of the path list. Pick a station and track from the list and
+                    <strong>the switch directions are found automatically and the path is extended to it</strong> (no need to flip switches one by one, even for stations reached via reverse).
+                    The path and switch directions up to the current final stop <strong>stay as they are</strong>; only the extension is added.
+                    If the station can't be reached by extending beyond the current final stop (for example, a station on another branch),
+                    <strong>the path goes back to the nearest switch and is re-drawn from there</strong>.
+                    In that case a confirmation bar shows where the change starts, <strong>the stations left out (count and names)</strong>, the new stations and the switches to change,
+                    and the new path is shown on the map. "Change" applies it; "Cancel" leaves everything as it was.
+                    Stations that can't be reached (they need a change of direction, or no route is registered) are dimmed in the list; click one to see why.
+                    Tracks that can only be entered by passing through another track of the same station are not listed. <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes it</li>
             </ul>
             <div class="callout">
                 When <strong>"⚠Other direction"</strong> appears on a switch row, no route can be set with the switch in that position.
@@ -271,6 +320,12 @@
                 Once linked, the following train path is <strong>laid out again so that it departs from the track where the previous service arrived</strong>.
                 If it can't keep going in the same direction, it is rebuilt as a turnback (reversing direction).
             </p>
+            <div class="callout">
+                <strong>A train path with an orange ring at its final stop</strong> isn't linked to a next service, yet <strong>another train uses that track later</strong>.
+                If it runs as is, the vehicle that arrived blocks the track and the later train can't get in (this is the same rule as the "stopped with no next service" alert during play).
+                Select the train path to see which train uses the track and when, in the caption on the diagram. Link it to a next service, or make it end on a track nobody uses (such as a siding).
+                Train paths that end on a track nobody uses later (such as the last stabling of the day) don't get the ring.
+            </div>
             <h3>Linking All Turnbacks at One-Track Stations</h3>
             <p>
                 <strong>"Whole timetable: link all turnbacks at stations with only one track"</strong>, above the window's train list,
@@ -494,6 +549,11 @@
                 <li>Trains whose occupancy times overlap on the same track at the same station</li>
                 <li>Linked trains have <strong>mismatched car types</strong>
                     (they run with the same vehicle, so the actual running uses the previous train path's car type performance)</li>
+                <li id="single-line-meet"><strong>Facing each other on a single-track section</strong> — Two trains running in opposite directions use the same single-track section
+                    (from one station where trains can meet to the next) at the same time. In practice one of them is held at the station before the section and doesn't run to the timetable.
+                    Adjust the times so that one train reaches a station where trains can meet before the other enters the section.
+                    This applies only to maps with <strong>tracks marked as single-track sections</strong> in the map editor (it doesn't appear on maps without them).
+                    It is checked from the times only, and times are not adjusted automatically</li>
             </ul>
             <p>
                 Car type mismatches can be <strong>fixed all at once to the first car type</strong> of each linked chain with the

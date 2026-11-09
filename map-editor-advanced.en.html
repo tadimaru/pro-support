@@ -63,6 +63,7 @@
             <li><a href="#interstation">🧵 Lay Track (Advanced Version)</a></li>
             <li><a href="#coordinate">📍 Moving Coordinates (Touching Up After Placing)</a></li>
             <li><a href="#jump">🪢 Connect Separate Tracks (Jumps)</a></li>
+            <li><a href="#map-label">📝 Map Notes</a></li>
             <li><a href="#train">🚋 Car Type (Advanced Version)</a></li>
             <li><a href="#lint">🧾 Fixing To-Dos in Advanced Mode</a></li>
             <li><a href="#keys">⌨️ Common Controls</a></li>
@@ -129,6 +130,7 @@
                 <tr><td><strong>Platform</strong></td><td>Place platform rectangles and enter track labels</td></tr>
                 <tr><td><strong>Station Module</strong></td><td>Generate a complete station at once (the same tool as "Build Station" in Easy mode)</td></tr>
                 <tr><td><strong>Lay Track</strong></td><td>Generate the section between stations at once (same as "Connect Stations")</td></tr>
+                <tr><td><strong>Map notes</strong></td><td>Place text such as line names, direction names, and notes on the map (it also appears on the play screen; see <a href="#map-label">Map Notes</a>)</td></tr>
             </table>
             <h3>Equipment</h3>
             <table>
@@ -225,6 +227,8 @@
                 (internally it is saved as two single turnouts, and two entries appear in the list. In the list you can tell them apart as "Single crossover (partner SW_xxx)").
                 When you try to delete one of them, you are asked <strong>whether to delete its partner too</strong>
                 (if you delete only one, only the diagonal line of the crossover used by the partner remains).
+                In the game, the two switches of a single crossover <strong>are thrown together</strong>.
+                However, if any route sets them to different positions (only one of them reversed), that pair keeps moving separately as before.
             </div>
             <p>You can select a switch by clicking its row in the switch list. Selecting it moves the view to that switch and makes it flash red.</p>
             <p>
@@ -484,6 +488,7 @@
                 You can also select a placed lever by <strong>clicking its row in the "Levers" list in the left panel</strong>
                 (no need to aim for the small circle on the map). Selecting it shows a delete button below.
                 The list also shows each lever's station and coordinates, so you can tell which is which.
+                The lever, switch, route and signal lists, and a route's "Conflicting Routes" list, start collapsed. Click the heading (▶ and the count) to open it.
             </div>
             <p>A lever is a point that marks the <strong>start (entrance) and end (exit)</strong> of a route. You cannot make routes without them.</p>
             <ol class="step-list">
@@ -689,7 +694,7 @@
                 <li>Adding a row means <strong>OR</strong> (any one holds); adding a condition within a row means <strong>AND</strong>.</li>
                 <li>They are checked in the order <strong>restricted → reduced speed → caution</strong>; if none applies, the signal shows proceed.</li>
                 <li>With the cursor in an input box, <strong>click a signal on the map</strong> to enter its name.</li>
-                <li>Check <strong>2-aspect signal</strong> to limit the highest aspect to Y (no reduced speed or restricted).</li>
+                <li>Check <strong>2-aspect signal</strong> to limit the highest aspect to Y (no reduced speed or restricted). Shunting signals have no 2-aspect checkbox and no aspect conditions, because they light only when showing proceed.</li>
             </ul>
             <h3>Reduced Speed (YG) Is Added Automatically</h3>
             <p>
@@ -748,6 +753,7 @@
             <p>
                 Lever numbers are serial numbers in the order you placed them. Once stations are assigned,
                 <strong>you can renumber them in station order from the starting point</strong> (they change only when you press the button).
+                The buttons are on both the <strong>Station Levers</strong> and <strong>Lever</strong> screens.
             </p>
             <ul>
                 <li><strong>Sequential</strong> — Station A 1–6, Station B 7–12, …</li>
@@ -786,7 +792,8 @@
                     <strong>"Select all single-track tracks"</strong> reselects only flagged track.
                     It also shows how many of the selected tracks are flagged as single track.</li>
                 <li><strong>Bulk Place Block Signals</strong> — places a block signal on each selected track circuit
-                    (the left or right end is chosen automatically according to the direction of travel).</li>
+                    (the left or right end is chosen automatically according to the direction of travel).
+                    On track that can be run in both directions (single track), run it again with the other direction to add a second signal facing the other way (its name ends in "_2").</li>
                 <li>The number of <strong>track circuits with a length of 0</strong> is shown, and you can select them all at once.</li>
             </ul>
             <div class="callout warn">
@@ -1024,14 +1031,40 @@
             </div>
         </section>
 
+        <section id="map-label">
+            <h2>📝 Map Notes</h2>
+            <p>
+                You can place any text on the map. Use it for signs with line or direction names, such as "Airport Line" or "← for Hiyoridai",
+                or for notes to players. <strong>It appears in the same place on the play screen</strong> (in gray text a little smaller than station names).
+                It also shows in the thumbnail.
+            </p>
+            <ol class="step-list">
+                <li>Choose <strong>"Layout ▾" → "Map notes"</strong></li>
+                <li><strong>Left-click</strong> where you want to place it (an orange dot appears)</li>
+                <li>In the left panel, enter the <strong>text</strong>, choose the <strong>size</strong> (×0.5 to ×3), and press <strong>"Place"</strong></li>
+            </ol>
+            <p>
+                <strong>Right-click</strong> a placed note to select it; you can then change its text and size in the left panel.
+                <strong>Right-drag</strong> to move it, and press <kbd>Delete</kbd> (or "Delete") to remove it.
+            </p>
+            <div class="callout">
+                The text is in one language only (it doesn't change with the display language). You can't choose a color.
+                Commas (,) and quotation marks (") can't be used (they are removed as you type).
+            </div>
+        </section>
+
         <section id="train">
             <h2>🚋 Car Type (Advanced Version)</h2>
             <p>Instead of question and answer, you edit the values directly.</p>
             <ul>
-                <li><strong>ID</strong> — Becomes the image name for a custom icon (half-width letters, digits, <code>_</code> and <code>-</code>).</li>
+                <li><strong>ID</strong> — Becomes the image name for a custom icon (half-width letters, digits, <code>_</code> and <code>-</code>).
+                    You can also set it in the new car type form (if left empty, a number such as <code>TT_001</code> is given).
+                    If you change the ID later, the icon image you placed is renamed to the new ID as well
+                    (if an image with the new name already exists, it is not renamed and a message says so).</li>
                 <li><strong>Cars per trainset / Car length</strong> — With 18, 20 and 25 m buttons. The trainset length is shown on the spot.</li>
                 <li><strong>Max speed / Acceleration / Deceleration</strong> — km/h, km/h/s.</li>
                 <li><strong>Icon</strong> — Choose from the official bank, or provide a PNG with the same name as the ID.</li>
+                <li><strong>Duplicate</strong> — Copies the selected car type within the same map (values and icon are carried over; the ID gets a new number and the display name gets "(copy)").</li>
             </ul>
             <div class="callout warn">
                 <strong>Finalize the ID before building timetables.</strong>
@@ -1058,10 +1091,15 @@
                 <tr><td><strong>Single-track flag</strong></td><td>Track Bulk</td><td>Single track has no flag / it is set on double track / it is set on a platform track</td></tr>
                 <tr><td><strong>Platform length</strong></td><td>Car type</td><td>The longest trainset doesn't fit on any platform track (shorten the vehicles or rebuild the station)</td></tr>
                 <tr><td><strong>Unused lever</strong></td><td>Lever</td><td>A lever not used by any route (pressing it does nothing; delete it if not needed)</td></tr>
+                <tr><td><strong>Signal without a route</strong></td><td>Signal</td><td>The route was deleted but its signal was left behind (maps made before v0.4.5; it can only show red)</td></tr>
                 <tr><td><strong>Station Levers</strong></td><td>Station Levers</td><td>A lever is not assigned to a station (manual/auto station control doesn't work)</td></tr>
                 <tr><td><strong>Station abbreviation</strong></td><td>Station</td><td>The 2-char abbreviation is 3 or more characters / the 1-char abbreviation is 2 or more (maps with hand-written CSV)</td></tr>
                 <tr><td><strong>Signal references</strong></td><td>Signal</td><td>The <strong>display name was changed</strong> of a signal that an aspect condition points to (that condition will never hold) / a protected track circuit is gone / the CSV was written by hand</td></tr>
             </table>
+            <p>
+                <strong>Unused levers</strong> and <strong>signals without a route</strong> can be removed in one go with <strong>"Delete all"</strong> on their heading.
+                The items are listed in a confirmation window first. Track circuits are never included. If you make a mistake, a single <kbd>Ctrl</kbd>+<kbd>Z</kbd> brings everything back.
+            </p>
             <div class="callout">
                 <strong>Errors (red) cannot be saved.</strong> Only things that will definitely break if left alone
                 (CSV rows discarded on load, duplicate IDs, a starting point that points to a station that doesn't exist) appear here.

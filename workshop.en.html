@@ -192,22 +192,28 @@
             <h2>📤 Publishing Your Map</h2>
             <p>
                 Publishing is done from the <strong>map editor</strong> screen.
-                <strong>One item = one map + all timetables made on that map</strong>.
+                <strong>One item = one map + the timetables you choose from those made on that map</strong>.
             </p>
             <ol class="step-list">
                 <li>In the map editor, open the map you want to publish.</li>
                 <li>Choose <strong>"File ▾" → "Publish to Workshop..."</strong>.</li>
                 <li>Write a <strong>description</strong>. The <strong>line name</strong> is used as the title as is (to change it, use "Line Settings...").</li>
-                <li>Check <strong>"Timetables published with it"</strong>.</li>
+                <li>Under <strong>"Timetables to publish with it"</strong>, check the timetables you want to publish.</li>
                 <li>Choose <strong>tags</strong> (<a href="#tags">Tags</a>).</li>
                 <li>Read the <strong>publishing guidelines</strong> and check "I agree to the guidelines above" (<a href="#guideline">Publishing Guidelines</a>).</li>
                 <li>Press <strong>"Save and check → Publish"</strong>. The map is saved and the <a href="#validation">pre-publish check</a> runs.</li>
                 <li>When the upload finishes, <strong>"Published"</strong> appears. You can view the Steam page with "Open Workshop page".</li>
             </ol>
-            <div class="callout warn">
-                <strong>All timetables on this map are published.</strong>
-                Delete any timetables you don't want to publish beforehand: select them in the "Timetable Builder" list on the title screen and press <kbd>Delete</kbd>.
-                You can publish even with no timetables at all (publishing only the map, so players make their own timetables).
+            <div class="callout">
+                <strong>You can choose which timetables to publish.</strong>
+                Timetables you uncheck are not published (they stay on your PC).
+                For example, you can publish only the weekday timetable first, and add the unfinished holiday timetable later by checking it and publishing again once it is done.
+                <ul>
+                    <li>When you publish for the first time, all timetables are checked.</li>
+                    <li>When you publish again, <strong>only the timetables you published last time</strong> are checked (so timetables you made later aren't published by accident).</li>
+                    <li>If you uncheck a timetable you published last time and publish again, <strong>it also disappears for players who subscribe to the item</strong>. A warning appears in that case.</li>
+                </ul>
+                You can publish even with no timetables at all, or with none checked (publishing only the map, so players make their own timetables).
             </div>
             <div class="callout warn">
                 <strong>Items are published publicly.</strong>
@@ -219,7 +225,9 @@
                 Until you agree, your item isn't visible to others. When prompted, agree on the Steam page that opens.
             </div>
             <div class="callout tip">
-                The <strong>thumbnail</strong> is captured automatically from the map editor screen each time you save the map. You don't need to prepare one.
+                The <strong>thumbnail</strong> is captured automatically each time you save the map. You don't need to prepare one.
+                Like the official lines, it shows the whole line as it looks on the play screen (with station names, signals, and levers).
+                Maps saved in an earlier version are recaptured in this look the next time you save them (the Workshop thumbnail is updated when you publish again).
             </div>
         </section>
 
