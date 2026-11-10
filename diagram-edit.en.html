@@ -243,6 +243,8 @@
                     (also hold <kbd>Ctrl</kbd> to add to the current selection)</li>
                 <li><strong>Add or remove one at a time</strong> — Click a train path while holding <kbd>Ctrl</kbd> (or <kbd>Shift</kbd>)</li>
                 <li>A normal click goes back to selecting a single train path. Selected train paths are highlighted in yellow</li>
+                <li><strong>Switching the diagram's direction (the "Dir: Both" button) or view clears the multiple selection</strong>
+                    (so you don't change train paths that are no longer visible without noticing). Select them again</li>
                 <li>While several are selected, single-path operations (departure time, train no., train type, car type, origin, route, link services, copy, delete) don't work.
                     To edit one train path, select it again with a normal click</li>
             </ul>
@@ -260,6 +262,10 @@
             </ul>
             <p>If "Shift departure times" would put even one train path before 0:00, <strong>nothing is changed</strong>, including the other items (adjust the shift amount or uncheck the shift).
                 A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the applied changes all at once. Applying clears the checks, and reopening the window also resets the checks and fields (so the previous values don't shift things twice). The window also closes with <kbd>Esc</kbd>.</p>
+            <p>
+                <strong>"Delete the N selected train paths"</strong> at the bottom of the window deletes all the selected train paths. A confirmation appears, and they are deleted when you press <strong>"Delete"</strong>.
+                Service links to the deleted train paths are removed (the same as deleting one). A single <kbd>Ctrl</kbd>+<kbd>Z</kbd> brings them all back. The selection is cleared after deleting.
+            </p>
 
             <h3>Adjusting the Route and Stops (the "Route" Field)</h3>
             <p>The stations and switches the selected train path passes are listed from top to bottom.</p>
@@ -289,14 +295,19 @@
                     "Unset Final Stop" sets them back.
                     The train stops on <strong>the first track it enters at that station</strong> (it doesn't continue to another platform of the same station beyond a switch).
                     To stop at such platforms separately, <a href="map-editor-advanced.en.html#split-platform">register them as separate stations</a> in the map editor</li>
-                <li><strong>Change destination…</strong> — The button at the bottom of the path list. Pick a station and track from the list and
+                <li><strong>Changing the destination</strong> — The <strong>"Destination"</strong> field just below "Origin" shows the current final stop (station and track).
+                    Press <strong>"Change…"</strong>, pick a <strong>station</strong> and then a <strong>track</strong> at that station, and
                     <strong>the switch directions are found automatically and the path is extended to it</strong> (no need to flip switches one by one, even for stations reached via reverse).
                     The path and switch directions up to the current final stop <strong>stay as they are</strong>; only the extension is added.
                     If the station can't be reached by extending beyond the current final stop (for example, a station on another branch),
                     <strong>the path goes back to the nearest switch and is re-drawn from there</strong>.
                     In that case a confirmation bar shows where the change starts, <strong>the stations left out (count and names)</strong>, the new stations and the switches to change,
                     and the new path is shown on the map. "Change" applies it; "Cancel" leaves everything as it was.
-                    Stations on the current path are marked "(Terminate Here)"; picking one ends the train there (the same as the "Terminate Here" button).
+                    Each station in the list carries a note such as "(Terminate Here)" or "(re-draws the path, N stations left out)" (if it differs by track, the note for the track that leaves out the fewest stations).
+                    A station with two or more selectable tracks shows "▸ choose a track"; clicking it switches to the list of its tracks ("← Choose another station" at the top takes you back).
+                    A station with only one selectable track already shows the track in the station list, and clicking it picks it straight away.
+                    Picking a station on the current path ends the train there (the same as the "Terminate Here" button).
+                    Depots, headshunts and other locations without passenger service are grouped after the passenger stations.
                     Stations that can't be reached (they need a change of direction, or no route is registered) are dimmed at the end of the list; click one to see why.
                     Tracks that can only be entered by passing through another track of the same station are not listed. <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes it</li>
             </ul>

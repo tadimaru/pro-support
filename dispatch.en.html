@@ -99,10 +99,14 @@
             </p>
             <p>Whether a request is made in the first place depends on the following conditions.</p>
             <ul>
-                <li><strong>The look-ahead is normally up to 1000 m.</strong> In sections with long blocks, however,
-                    so that the train can pass the signal just before the route while it shows a favorable aspect,
-                    <strong>the request is made early, automatically, as the train approaches that signal</strong>
-                    (routes beyond that are not requested yet).</li>
+                <li><strong>When a route is requested is worked out backward from the signals before it.</strong>
+                    While the route is not yet set, the signals before it show caution, reduced speed, and so on.
+                    The request is made once the train reaches <strong>the latest point at which it still won't have to brake for those aspects</strong>.
+                    In sections where the track speed limit is already lower than an aspect's speed, that aspect is ignored.
+                    So at stations approached slowly, such as terminals, the home route doesn't open until the train is close to the station,
+                    letting trains that depart across it leave first. The timing also depends on how the signals are built (whether they have a reduced-speed aspect;
+                    see "YG is optional (3-aspect)" in map making).
+                    How far ahead trains watch signals and speed limits (the look-ahead: normally 1000 m, longer for faster trains) is unchanged.</li>
                 <li><strong>If another train is on the path, the request stops short of it.</strong>
                     This keeps the system from grabbing routes the train physically can't reach yet,
                     which would <strong>block the routes the train ahead needs</strong>.</li>
@@ -455,7 +459,7 @@
                     If several departure routes leave the track, they are tried in turn.
                     If none works, <strong>the reason and how to fix it</strong> are shown in the path area (for example, that another track of the same station or the opposite direction would work).</li>
                 <li>Looking at the resulting draft path, adjust <strong>"Terminate Here"</strong>, dwell seconds, extra stops and skip stops,
-                    and switch directions. <strong>"Change destination…"</strong> at the bottom of the path list extends the path to the station and track you pick,
+                    and switch directions. <strong>"Change…"</strong> on the <strong>"Destination"</strong> row at the top of the path list lets you pick a station and then a track, and extends the path there,
                     finding the switch directions automatically (the same as in timetable editing).</li>
                 <li>Confirm with <strong>"Confirm (couple the vehicle)"</strong>. To give up, use "Discard Draft".</li>
             </ol>
