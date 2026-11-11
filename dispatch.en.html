@@ -103,9 +103,9 @@
                     While the route is not yet set, the signals before it show caution, reduced speed, and so on.
                     The request is made once the train reaches <strong>the latest point at which it still won't have to brake for those aspects</strong>.
                     In sections where the track speed limit is already lower than an aspect's speed, that aspect is ignored.
-                    So at stations approached slowly, such as terminals, the home route doesn't open until the train is close to the station,
-                    letting trains that depart across it leave first. The timing also depends on how the signals are built (whether they have a reduced-speed aspect;
-                    see "YG is optional (3-aspect)" in map making).
+                    So at stations with a low approach speed limit, and at terminals the train doesn't depart beyond, the home route doesn't open until the train is close to the station,
+                    letting trains that depart across it leave first (at intermediate stops, the home route opens early along with the starting route). The timing also depends on how the signals are built (whether they have a reduced-speed aspect;
+                    see "You Don't Have to Add Reduced Speed (YG) (3-Aspect)" in map making).
                     How far ahead trains watch signals and speed limits (the look-ahead: normally 1000 m, longer for faster trains) is unchanged.</li>
                 <li><strong>If another train is on the path, the request stops short of it.</strong>
                     This keeps the system from grabbing routes the train physically can't reach yet,
